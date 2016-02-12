@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: parniks
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  system_name :string(255)
+#  brand_type  :string(255)
+#  price       :integer
+#  image       :string(255)
+#  image_2     :string(255)
+#  width       :string(255)
+#  length      :string(255)
+#  height      :string(255)
+#  small_desc  :text
+#  desc        :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  system_name: MyString
+  price: 1
+  image: MyString
+  image_2: 
+  small_desc: MyText
+  desc: MyText
+
+two:
+  name: MyString
+  system_name: MyString
+  price: 1
+  image: MyString
+  image_2: 
+  small_desc: MyText
+  desc: MyText

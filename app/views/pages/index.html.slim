@@ -1,0 +1,17 @@
+section.well1.ins3
+  .container
+    h2 Теплицы Воля
+    - if @parniks_1
+      .row.off1
+        .grid_12
+          h3 теплицы из оцинкованной квадратной трубы
+          .row
+            - @parniks_1.each do |parnik|
+              = render partial: 'parniks/preview', locals: { parnik: parnik}
+    - if @parniks_2
+      .row.off1
+        .grid_12
+          h3 теплицы из мощного оцинкованного профиля
+          .row
+            - @parniks_2.each do |parnik|
+              = render partial: 'parniks/preview', locals: { parnik: parnik}

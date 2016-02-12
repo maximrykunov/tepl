@@ -1,0 +1,18 @@
+.grid_4.product
+  h3.title
+    = link_to parnik.name, parnik, title: "Подробнее #{parnik.name}"
+  = link_to parnik, title: "Подробнее #{parnik.name}" do
+    = image_tag parnik.image, alt: parnik.name
+  br/
+  b
+    | Цена от 
+    font color="red"
+      | #{parnik.price} рублей
+  br/
+  b Размеры теплицы:
+  ul
+    li ширина: #{parnik.width};
+    li высота: #{parnik.height};
+    li длина: #{parnik.length}
+  p.more
+    = link_to 'Подробнее...', parnik, title: "Подробнее #{parnik.name}"
