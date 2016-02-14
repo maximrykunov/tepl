@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: parniks
+# Table name: products
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -20,7 +20,7 @@
 
 require 'test_helper'
 
-class ParnikTest < ActiveSupport::TestCase
+class ProductTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

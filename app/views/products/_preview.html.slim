@@ -1,0 +1,18 @@
+.grid_4.product
+  h3.title
+    = link_to product.name, product, title: "Подробнее #{product.name}"
+  = link_to product, title: "Подробнее #{product.name}" do
+    = image_tag product.image, alt: product.name
+  br/
+  b
+    | Цена от 
+    font color="red"
+      | #{product.price} рублей
+  br/
+  b Размеры теплицы:
+  ul
+    li ширина: #{product.width};
+    li высота: #{product.height};
+    li длина: #{product.length}
+  p.more
+    = link_to 'Подробнее...', product, title: "Подробнее #{product.name}"

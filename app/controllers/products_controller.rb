@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: parniks
+# Table name: products
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -18,22 +18,8 @@
 #  updated_at  :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  system_name: MyString
-  price: 1
-  image: MyString
-  image_2: 
-  small_desc: MyText
-  desc: MyText
-
-two:
-  name: MyString
-  system_name: MyString
-  price: 1
-  image: MyString
-  image_2: 
-  small_desc: MyText
-  desc: MyText
+class ParniksController < ApplicationController
+  def show
+    @parnik = Parnik.from_param(params[:id])
+  end
+end

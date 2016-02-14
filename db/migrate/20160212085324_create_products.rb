@@ -1,6 +1,6 @@
-class CreateParniks < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration
   def change
-    create_table :parniks do |t|
+    create_table :products do |t|
       t.string :name
       t.string :system_name
       t.string :brand_type

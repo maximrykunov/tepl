@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-parniks = [
+products = [
   {
     name: 'Теплица Омега',
     system_name: 'omega',
@@ -98,11 +98,11 @@ parniks = [
   }
 ]
 
-parniks.each do |parnik|
-  par = Parnik.find_or_create_by(name: parnik[:name])
-  par.assign_attributes(parnik)
+products.each do |product|
+  par = Product.find_or_create_by(name: product[:name])
+  par.assign_attributes(product)
   par.save
 end
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-# AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
+AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')

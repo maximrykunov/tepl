@@ -1,0 +1,8 @@
+main.mobile-center
+  section.well1.ins3
+    .container
+      h2 #{@product.name}
+      .row.off1 style="text-align:center" 
+        = image_tag @product.image_2, alt: @product.name
+      .row.off1
+        = @product.desc.html_safe

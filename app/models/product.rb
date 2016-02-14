@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: parniks
+# Table name: products
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -18,7 +18,7 @@
 #  updated_at  :datetime
 #
 
-class Parnik < ActiveRecord::Base
+class Product < ActiveRecord::Base
   def to_param
     "#{system_name.parameterize}"
   end
