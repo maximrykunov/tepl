@@ -56,6 +56,5 @@ production:
   encoding: unicode
   database: tepl_development
   pool:     5
-  username: maxim
-  password: password
+  username: tepl
   template: template0
