@@ -104,5 +104,5 @@ parniks.each do |parnik|
   par.save
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
