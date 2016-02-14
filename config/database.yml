@@ -54,7 +54,7 @@ production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: tepl_development
+  database: tepl_productions
   pool:     5
   username: tepl
   password: password
