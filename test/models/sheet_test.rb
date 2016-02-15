@@ -8,6 +8,7 @@
 #  cost        :integer
 #  description :text
 #  image       :string
+#  position    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
