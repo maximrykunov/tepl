@@ -16,9 +16,12 @@
 #  desc        :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category_id :integer
 #
 
 class Product < ActiveRecord::Base
+  belongs_to :category, inverse_of: :products
+
   def to_param
     "#{system_name.parameterize}"
   end

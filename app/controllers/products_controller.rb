@@ -16,10 +16,11 @@
 #  desc        :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category_id :integer
 #
 
-class ParniksController < ApplicationController
+class ProductsController < ApplicationController
   def show
-    @parnik = Parnik.from_param(params[:id])
+    @product = Product.from_param(params[:id])
   end
 end

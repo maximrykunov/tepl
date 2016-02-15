@@ -6,11 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+cat_0 = Category.find_or_create_by(name: 'Теплицы "Воля"')
+cat_1 = Category.find_or_create_by(name: 'Теплицы "Воля" из оцинкованной квадратной трубы', system_name: 'truba', parent: cat_0)
+cat_2 = Category.find_or_create_by(name: 'Теплицы "Воля" из мощного оцинкованного профиля', system_name: 'profil', parent: cat_0)
+
 products = [
   {
     name: 'Теплица Омега',
     system_name: 'omega',
-    brand_type: 'volya_1',
+    brand_type: 'Воля',
     price: '22900',
     image: 'volya/omega.jpg',
     image_2: 'volya/omega_big.jpg',
@@ -18,13 +22,14 @@ products = [
     desc: '',
     width: '2 м',
     height: '2.1 м',
-    length: '2, 4, 6, 8 м'
+    length: '2, 4, 6, 8 м',
+    category_id: cat_1.id
   },
 
   {
     name: 'Теплица Дельта',
     system_name: 'delta',
-    brand_type: 'volya_1',
+    brand_type: 'Воля',
     price: '18850',
     image: 'volya/delta.jpg',
     image_2: 'volya/delta_big.jpg',
@@ -35,13 +40,14 @@ products = [
             <p>Дверь теплицы «Дельта» делится на верхнюю и нижнюю часть, обе можно использовать в качестве дополнительного проветривания. В комплекте к теплице «Дельта» есть уплотнительный профиль. Высота теплицы в коньке – 2,2метра, ширина 2,5 метра, базовая длина – 2,2 метра.</p>',
     width: '2.5 м',
     height: '2.2 м',
-    length: '2.2, 4.3, 6.4 м'
+    length: '2.2, 4.3, 6.4 м',
+    category_id: cat_1.id
   },
 
   {
     name: 'Теплица Презент',
     system_name: 'present',
-    brand_type: 'volya_1',
+    brand_type: 'Воля',
     price: '26885',
     image: 'volya/present.jpg',
     image_2: 'volya/present_big.jpg',
@@ -51,13 +57,14 @@ products = [
           <p>В каждом торце теплицы из труб «Презент» есть дверь с удобной ручкой и защелкой. Дверь открывается полностью на 180 градусов и надежно фиксируется в этом положении крючком. Дверные петли разборные, и вы можете повесить дверь на любую сторону теплицы.</p>',
     width: '3 м',
     height: '2.2 м',
-    length: '2.2, 4.3, 6.4 м'
+    length: '2.2, 4.3, 6.4 м',
+    category_id: cat_1.id
   },
 
   {
     name: 'Теплица Дачная-Стрелка 3',
     system_name: 'strelka3',
-    brand_type: 'volya_2',
+    brand_type: 'Воля',
     price: '16400',
     image: 'volya/strelka3.jpg',
     image_2: 'volya/strelka3_big.jpg',
@@ -65,13 +72,14 @@ products = [
     desc: '<p>Каркас теплицы «Дачная-Стрелка-3м» изготовлен из мощного оцинкованного профиля, который обеспечивает максимальную надежность и долговечность конструкции. Теплица «Дачная-Стрелка-3м» - прекрасный выбор, если вы хотите создать оптимальные условия для выращивания садово-огородных культур на дачных и приусадебных участках. Высота теплицы – 2,4м, ширина – 3м. Длина теплицы может быть любой, кратной 2 м. Полезная площадь теплицы зависит от выбранных размеров каркаса. Теплица комплектуется всем необходимым для крепления покрытия, а подробная инструкция поможет вам при самостоятельной сборке теплицы. Фундамент не требуется. По желанию покупателя каркас комплектуется сотовым поликарбонатом и боковыми форточками. Стандартный вариант теплицы «Дачная-Стрелка-3м» имеет с обоих торцов дверь и форточку.</p>',
     width: '3 м',
     height: '2.4 м',
-    length: '2, 4, 6, 8 м'
+    length: '2, 4, 6, 8 м',
+    category_id: cat_2.id
   },
 
   {
     name: 'Теплица Трешка',
     system_name: 'treschka',
-    brand_type: 'volya_2',
+    brand_type: 'Воля',
     price: '17300',
     image: 'volya/treschka.jpg',
     image_2: 'volya/treschka_big.jpg',
@@ -79,13 +87,14 @@ products = [
     desc: '',
     width: '2 м',
     height: '2.1 м',
-    length: '2, 4, 6, 8 м'
+    length: '2, 4, 6, 8 м',
+    category_id: cat_2.id
   },
 
   {
     name: 'Теплица Дачная-Стрелка',
     system_name: 'strelka',
-    brand_type: 'volya_2',
+    brand_type: 'Воля',
     price: '15900',
     image: 'volya/strelka.jpg',
     image_2: 'volya/strelka_big.jpg',
@@ -94,7 +103,8 @@ products = [
             <p>Теплица «Дачная-Стрелка» идеально подходит для снежных зим. Каждая дуга усилена и выдерживает до 700 кг снеговой нагрузки. Предельная снеговая нагрузка на теплицу – 450 кг/м2. Каркас для теплицы изготовлен из прочного оцинкованного профиля 60х20 мм. Его высота прекрасно подходит для выращивания высокорослых культур, а ширина оптимальна для двух грядок. Готовые садовые теплицы с покрытием под сотовый поликарбонат серии «Дачная-Стрелка» можно устанавливать без фундамента – нужно всего лишь закопать специальные Т-образные окончания каркаса в грунт. По желанию покупателя в комплект теплиц входит покрытие.</p>',
     width: '2.2 м',
     height: '2.5 м',
-    length: '2, 4, 6, 8 м'
+    length: '2, 4, 6, 8 м',
+    category_id: cat_2.id
   }
 ]
 
@@ -105,4 +115,6 @@ products.each do |product|
 end
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
+unless AdminUser.find_by(email: 'maxim@rykunov.info')
+  AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
+end
