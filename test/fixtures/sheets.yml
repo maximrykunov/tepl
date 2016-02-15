@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: sheets
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  price       :integer
+#  cost        :integer
+#  description :text
+#  image       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 1
+  cost: 1
+  description: MyText
+  image: MyString
+
+two:
+  name: MyString
+  price: 1
+  cost: 1
+  description: MyText
+  image: MyString
