@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string
+#  short_name  :string
 #  price       :integer
 #  cost        :integer
 #  description :text

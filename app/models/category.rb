@@ -18,6 +18,12 @@ class Category < ActiveRecord::Base
   belongs_to :parent, class_name: "Category"
   has_many :children, class_name: "Category", foreign_key: "parent_id"
 
+  scope :ordered, -> { order(:position) }
+
+  def to_param
+    "#{system_name.parameterize}"
+  end
+
   def parent_name
     # it may not have a parent
     parent.try(:name)
@@ -29,5 +35,9 @@ class Category < ActiveRecord::Base
 
   def has_children?
     children.exists?
+  end
+
+  def self.from_param(param)
+    find_by_system_name(param)
   end
 end

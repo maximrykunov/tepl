@@ -2,7 +2,7 @@ header
   .container
     .brand
       h1.brand_name
-        a href="./"  Теплицы
+        a href="/"  Теплицы
       p.brand_slogan Медалак
     a.fa-phone href="callto:#"  800-2345-6789
     p Просто позвоните, и мы ответим на все ваши вопросы
@@ -11,24 +11,15 @@ header
       nav.nav
         ul.sf-menu data-type="navbar" 
           li.active
-            a href="./"  Главная
+            = link_to 'Главная', '/'
+          - @categories.each do |category|
+            li
+              = link_to category.name, category, title: category.name
+              ul
+                - category.children.each do |cat|
+                  li
+                    = link_to cat.name, cat, title: cat.name
           li
-            a href="teplicy_volya.php"  Теплицы Воля
-            ul
-              li
-                a href="teplicy_volya_polycarbon.php"  Теплицы из поликарбоната
-              /! <li><a href="teplicy_volya_plenka.php">Теплицы под пленку</a></li
-              /!
-                | <li><a href="#">Elit sed do eiusmod
-                | <ul
-                | <li><a href="#">Lorem ipsum</a></li
-                | <li><a href="#">Conse adipisicing</a></li
-                | <li><a href="#">Sit amet dolore</a></li
-                | </ul></a></li
-                | <li><a href="#">Incididunt ut labore</a></li
-                | <li><a href="#">Et dolore magna</a></li
-                | <li><a href="#">Ut enim ad minim</a></li
+            = link_to 'Доставка и оплата', '/dostavka'
           li
-            a href="dostavka.php"  Доставка и оплата
-          /! <li><a href="voprosy.php">Вопросы</a></li
-          /! <li><a href="contacts.php">Контакты</a></li
+            = link_to 'Контакты', '/contacts'

@@ -1,17 +1,19 @@
 section.well1.ins3
   .container
     h2 Теплицы Воля
-    - if @products_1
+    - if @category_1
       .row.off1
         .grid_12
-          h3 теплицы из оцинкованной квадратной трубы
+          h3 = link_to @category_1.name, @category_1
           .row
-            - @products_1.each do |product|
+            - @category_1.products.each do |product|
               = render partial: 'products/preview', locals: { product: product}
-    - if @products_2
+
+    - if @category_2
       .row.off1
         .grid_12
-          h3 теплицы из мощного оцинкованного профиля
+          h3 = link_to @category_2.name, @category_2
           .row
-            - @products_2.each do |product|
+            - @category_2.products.each do |product|
               = render partial: 'products/preview', locals: { product: product}
+

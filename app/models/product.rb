@@ -68,6 +68,6 @@ class Product < ActiveRecord::Base
   end
 
   def self.from_param(param)
-    find_by_system_name!(param)
+    find_by_system_name(param)
   end
 end

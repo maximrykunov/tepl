@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-cat_0 = Category.find_or_create_by(name: 'Теплицы "Воля"')
-cat_1 = Category.find_or_create_by(name: 'Теплицы "Воля" из оцинкованной квадратной трубы', system_name: 'truba', parent: cat_0)
-cat_2 = Category.find_or_create_by(name: 'Теплицы "Воля" из мощного оцинкованного профиля', system_name: 'profil', parent: cat_0)
+cat_0 = Category.find_or_create_by(name: 'Теплицы "Воля"', system_name: 'teplicy_volya')
+cat_1 = Category.find_or_create_by(name: 'Теплицы "Воля" из оцинкованной квадратной трубы', system_name: 'teplicy_volya_truba', parent: cat_0)
+cat_2 = Category.find_or_create_by(name: 'Теплицы "Воля" из мощного оцинкованного профиля', system_name: 'teplicy_volya_profil', parent: cat_0)
 
 sheet_1 = Sheet.find_or_create_by(name: 'Поликарбонат "Дачный" 6х2.1 м', short_name: 'Дачный', description: '', price: 1900, cost: 1768, position: 1)
 sheet_2 = Sheet.find_or_create_by(name: 'Поликарбонат "Воля" standart 6х2.1 м', short_name: '"Воля" standart', description: '<p>Сотовый поликарбонат«Воля Standart» имеет стандартную структуру сот. На маркированной стороне листа нанесен специальный защитный UV-слой. Плотность сотового поликарбоната «Воля Standart» составляет 0,6 кг/м2.</p>
@@ -288,3 +288,20 @@ end
 unless AdminUser.find_by(email: 'maxim@rykunov.info')
   AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
 end
+
+page_1 = Page.find_or_create_by(system_name: 'dostavka', title: 'Доставка и оплата', content: '<h2>Доставка и оплата</h2>
+            <h3 class="off1 primary">Бесплатная доставка</h3>
+            <p>Для удобства наши клиентов, мы осуществляем бесплтаную групповую доставку. Доставка осуществляется в ближайшие выходные дни.</p>
+            <h3 class="off1 primary">Персональная доставка</h3>
+            <p>При желании клиента осуществляется персональная доставка на следующий день. В данном случае стоимость доставки составляет 26 рублей за 1 км от Дубны.</p>
+            <hr>
+            <h3 class="off1 primary">Оплата</h3>
+            <p>Оплта производится на месте</p>
+')
+
+page_2 = Page.find_or_create_by(system_name: 'contacts', title: 'Как с нами связаться', content: '<h2>Как с нами связаться</h2>
+            <h3 class="off1 primary">Телефон</h3>
+            <p><a href="tel:8926">(926) ...</a></p>
+            <h3 class="off1 primary">Электронная почта</h3>
+            <p><a href="mailto:maxim@medalak.ru">maxim@medalak.ru</a></p>
+')
