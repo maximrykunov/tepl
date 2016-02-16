@@ -14,15 +14,12 @@
 
 class PagesController < ApplicationController
   def index
-  	@category_1 = Category.find_by(system_name: 'truba')
-    # @products_1 = Product.where(category: @category_1).ordered
-  	@category_2 = Category.find_by(system_name: 'profil')
-    # @products_2 = Product.where(category: @category_2).ordered
+  	@category_1 = Category.find_by(system_name: 'teplicy_volya_truba')
+  	@category_2 = Category.find_by(system_name: 'teplicy_volya_profil')
   end
 
   def show
     @page = Page.from_param(params[:id])
-    p "===#{@page.nil?}"
     render '/shared/404', :status => 404 if @page.nil?
   end
 end
