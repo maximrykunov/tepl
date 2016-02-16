@@ -207,7 +207,7 @@ products = [
     position: 2,
     div_price: 1600,
     div_cost: 1250,
-    div_weight: 10,
+    div_weight: 13,
     min_sheet_id: sheet_1.id
   },
 
@@ -224,7 +224,7 @@ products = [
 <p>Все это позволило получить новую перспективную модель высокого качества при невысокой цене. </p>',
     width: 2,
     height: 2.1,
-    length: '2, 4, 6, 8',
+    length: '4, 6, 8',
     category_id: cat_2.id,
     base_length: 4,
     base_weight: 55,
@@ -241,7 +241,7 @@ products = [
     position: 3,
     div_price: 2000,
     div_cost: 1600,
-    div_weight: 9,
+    div_weight: 19,
     min_sheet_id: sheet_1.id
   },
 

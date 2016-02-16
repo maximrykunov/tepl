@@ -51,6 +51,18 @@ class Product < ActiveRecord::Base
     base_price + min_sheet.price*base_sheet
   end
 
+  def full_base_price(extend_count)
+    base_price + extend_count*extend_price
+  end
+
+  def full_install_price(extend_count)
+    base_install + extend_count*extend_install
+  end
+
+  def full_price(extend_count, sheet)
+    full_base_price(extend_count) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
+  end
+
   def sheets
     Sheet.where("id >= ?", min_sheet_id).ordered
   end

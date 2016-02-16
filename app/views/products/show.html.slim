@@ -6,29 +6,33 @@ main.mobile-center
         = image_tag @product.image_2, alt: @product.name
       .row.off1
         = @product.desc.html_safe
+
       table
-        tr.dark.center
-          th rowspan="2"
-            | Длина
-          th.center colspan="#{@product.sheets.count+1}"
-            | Цена
-          th rowspan="2"
-            | Стоимость установки
         tr.dark
-          th Каркас
-          - @product.sheets.each do |sheet|
-            th.center
-              | Каркас
-              br>/
-              | + 
-              br>/
-              | #{sheet.short_name}
-        -@product.length.split(', ').each_with_index do |size, idx|
+          td
+            | Длина
+          - @product.length.split(', ').each_with_index do |size, idx|
+            td
+              = "#{size} метра"
+              br/
+              = product_weight(@product, idx)
+        tr
+          td
+            | Каркас
+          - @product.length.split(', ').each_with_index do |size, idx|
+            td = "#{@product.full_base_price(idx)} руб."
+        - @product.sheets.each do |sheet|
           tr
-            td = "#{size} метра"
-            td = @product.base_price + idx*(@product.extend_price)
-            - @product.sheets.each do |sheet|
-              td = @product.base_price + idx*(@product.extend_price) + @product.base_sheet*sheet.price + idx*@product.extend_sheet*sheet.price
-            td = @product.base_install + idx*(@product.extend_install)
-
-
+            td
+              p Каркас + поликарбонат
+              p #{sheet.short_name}
+            - @product.length.split(', ').each_with_index do |size, idx|
+              td = "#{@product.full_price(idx, sheet)} руб."
+        tr
+          td
+            | Установка
+            sup *
+            br/
+            | (заказывается отдельно)
+          - @product.length.split(', ').each_with_index do |size, idx|
+            td = "#{@product.full_install_price(idx)} руб."
