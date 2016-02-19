@@ -39,5 +39,8 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.from_param(params[:id])
+    @title = "#{@product.name}. #{APP_CONFIG['default_title_tail']}"
+    @meta_keywords = "#{@product.name}, #{APP_CONFIG['meta_keywords_tail']}"
+    @meta_description = "#{@product.name} #{APP_CONFIG['meta_description_tail']}"
   end
 end

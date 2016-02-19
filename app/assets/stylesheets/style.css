@@ -678,8 +678,16 @@ blockquote p + cite {
 .contact-list a[href^="callto:"] {
   font-size: 24px;
 }
+.contact-list a[href^="tel:"] {
+  font-size: 24px;
+}
 @media (min-width: 768px) and (max-width: 979px) {
   .contact-list a[href^="callto:"] {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .contact-list a[href^="tel:"] {
     font-size: 18px;
   }
 }
@@ -695,6 +703,10 @@ blockquote p + cite {
   color: #42acda;
 }
 .contact-list2 a[href^="callto:"] {
+  font-size: 24px;
+  line-height: 28px;
+}
+.contact-list2 a[href^="tel:"] {
   font-size: 24px;
   line-height: 28px;
 }
@@ -1211,6 +1223,49 @@ header a[href^="callto:"] + p {
     padding-left: 0;
   }
   header a[href^="callto:"] {
+    display: inline-block;
+    margin-top: 20px;
+  }
+}
+
+header a[href^="tel:"],
+header .container > p {
+  clear: right;
+  float: right;
+}
+header a[href^="tel:"] {
+  margin-top: 7px;
+  position: relative;
+  font-size: 24px;
+  color: #777777;
+}
+header a[href^="tel:"]:before {
+  position: absolute;
+  top: -4px;
+  left: -44px;
+  font-size: 34px;
+  color: #6bc7ed;
+}
+header a[href^="tel:"]:hover {
+  color: map;
+}
+header a[href^="tel:"] + p {
+  margin-top: 7px;
+}
+@media (max-width: 979px) {
+  header {
+    text-align: center;
+  }
+  header .brand, header a[href^="tel:"], header .container > p {
+    float: none;
+  }
+  header .brand {
+    display: block;
+  }
+  header .brand_slogan {
+    padding-left: 0;
+  }
+  header a[href^="tel:"] {
     display: inline-block;
     margin-top: 20px;
   }

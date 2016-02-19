@@ -153,6 +153,13 @@ header a[href^="callto:"]:before {
   color: #00cae5;
 }
 
+header a[href^="tel:"] {
+  color: #777777;
+}
+header a[href^="tel:"]:before {
+  color: #00cae5;
+}
+
 main p + a[href^="mailto:"] {
   color: #01BBD4;
 }
@@ -195,5 +202,9 @@ footer section + section .container {
 }
 
 a[href^="callto:"]:hover {
+  color: #01BBD4;
+}
+
+a[href^="tel:"]:hover {
   color: #01BBD4;
 }
