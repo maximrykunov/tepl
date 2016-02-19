@@ -6,7 +6,7 @@ section.well1.ins3
         .grid_12
           h3 = link_to @category_1.name, @category_1
           .row
-            - @category_1.products.each do |product|
+            - @category_1.products.ordered.each do |product|
               = render partial: 'products/preview', locals: { product: product}
 
     - if @category_2
@@ -14,6 +14,6 @@ section.well1.ins3
         .grid_12
           h3 = link_to @category_2.name, @category_2
           .row
-            - @category_2.products.each do |product|
+            - @category_2.products.ordered.each do |product|
               = render partial: 'products/preview', locals: { product: product}
 
