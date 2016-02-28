@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_header_info
 
   def get_header_info
+    Rails.logger.info "====#{ENV["MAIL_PASSWORD"]}"
     @categories = Category.where(parent_id: nil).ordered
   end
 end

@@ -47,7 +47,6 @@ class Product < ActiveRecord::Base
   end
 
   def price
-    p "==#{base_price}=#{min_sheet.price}=#{base_sheet}"
     base_price + min_sheet.price*base_sheet
   end
 
