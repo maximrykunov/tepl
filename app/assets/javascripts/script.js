@@ -9,18 +9,18 @@ function isIE() {
 
 /* cookie.JS
  ========================================================*/
-include('js/jquery.cookie.js');
+// include('js/jquery.cookie.js');
 
 /* Easing library
  ========================================================*/
-include('js/jquery.easing.1.3.js');
+// include('js/jquery.easing.1.3.js');
 
 /* PointerEvents  
  ========================================================*/
 ;
 (function ($) {
     if(isIE() && isIE() < 11){ 
-        include('js/pointer-events.js');
+        // include('js/pointer-events.js');
         $('html').addClass('lt-ie11'); 
         $(document).ready(function(){
             PointerEventsPolyfill.initialize({});
@@ -34,7 +34,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/tmstickup.js');
+        // include('js/tmstickup.js');
 
         $(document).ready(function () {
             $('#stuck_container').TMStickUp({})
@@ -48,7 +48,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/jquery.ui.totop.js');
+        // include('js/jquery.ui.totop.js');
 
         $(document).ready(function () {
             $().UItoTop({
@@ -65,7 +65,7 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('[data-equal-group]');
     if (o.length > 0) {
-        include('js/jquery.equalheights.js');
+        // include('js/jquery.equalheights.js');
     }
 })(jQuery);
 
@@ -75,8 +75,8 @@ include('js/jquery.easing.1.3.js');
 (function ($) {
     var o = $('html');
     if (o.hasClass('desktop')) {
-        include('js/jquery.mousewheel.min.js');
-        include('js/jquery.simplr.smoothscroll.min.js');
+        // include('js/jquery.mousewheel.min.js');
+        // include('js/jquery.simplr.smoothscroll.min.js');
 
         $(document).ready(function () {
             $.srSmoothscroll({
@@ -90,27 +90,27 @@ include('js/jquery.easing.1.3.js');
 /* Copyright Year
  ========================================================*/
 ;
-(function ($) {
-    var currentYear = (new Date).getFullYear();
-    $(document).ready(function () {
-        $("#copyright-year").text((new Date).getFullYear());
-    });
-})(jQuery);
+// (function ($) {
+//     var currentYear = (new Date).getFullYear();
+//     $(document).ready(function () {
+//         $("#copyright-year").text((new Date).getFullYear());
+//     });
+// })(jQuery);
 
 
 /* Superfish menus
  ========================================================*/
 ;
-(function ($) {
-    include('js/superfish.js');    
-})(jQuery);
+// (function ($) {
+//     include('js/superfish.js');    
+// })(jQuery);
 
 /* Navbar
  ========================================================*/
 ;
-(function ($) {
-    include('js/jquery.rd-navbar.js');
-})(jQuery);
+// (function ($) {
+//     include('js/jquery.rd-navbar.js');
+// })(jQuery);
 
 
 /* Google Map
@@ -142,7 +142,6 @@ include('js/jquery.easing.1.3.js');
 
     if ((navigator.userAgent.toLowerCase().indexOf('msie') == -1 ) || (isIE() && isIE() > 9)) {
         if (o.hasClass('desktop')) {
-            include('js/wow.js');
 
             $(document).ready(function () {
                 new WOW().init();
@@ -271,7 +270,8 @@ var o = $('#camera');
 
 /* Mailform
 =============================================*/
-;(function ($) {
-    include('js/mailform/jquery.form.min.js');
-    include('js/mailform/jquery.rd-mailform.min.c.js');
-})(jQuery);
+;
+// (function ($) {
+//     include('js/mailform/jquery.form.min.js');
+//     include('js/mailform/jquery.rd-mailform.min.c.js');
+// })(jQuery);
