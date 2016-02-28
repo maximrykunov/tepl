@@ -35,6 +35,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'phony_rails'
 gem 'russian'
+gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
