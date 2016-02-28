@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    h1 Заказали обратный звонок
+    p
+      table border="1"
+        tr
+          td Дата
+          td = I18n.localize(Contact.last.created_at, format: :long)
+        tr
+          td Имя
+          td = @contact.name
+        tr
+          td Телефон
+          td = @contact.phone
+        tr
+          td Сообщение
+          td = @contact.message

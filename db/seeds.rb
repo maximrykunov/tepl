@@ -551,7 +551,7 @@ page_1 = Page.find_or_create_by(system_name: 'dostavka', title: 'Доставк�
 
 page_2 = Page.find_or_create_by(system_name: 'contacts', title: 'Как с нами связаться', content: '<h2>Как с нами связаться</h2>
             <h3 class="off1 primary">Телефон</h3>
-            <p><a href="tel:8926">(926) ...</a></p>
+            <p><a href="tel:89268631108">(926) 863-11-08</a></p>
             <h3 class="off1 primary">Электронная почта</h3>
-            <p><a href="mailto:maxim@medalak.ru">maxim@medalak.ru</a></p>
+            <p><a href="mailto:teplicy@medalak.ru">teplicy@medalak.ru</a></p>
 ')

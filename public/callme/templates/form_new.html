@@ -1,0 +1,37 @@
+<div id='callme'>
+  <input type='button' id='viewform' class='callme_viewform'>
+</div>
+
+<div class='cme-form' id="cme-form-main">
+  <form class='cme'>
+    <a class='cme-cls' href='/callme/'>&times;</a>
+    <div class="h6">{{:title}}</div>
+    <div class='cme-fields'>
+
+      <div class='cme-template' data-cme='textField'>
+        <span>Имя</span>
+        <span><input placeholder='Ваше имя' name='name' required class='cme-txt' type='text' maxlength='150'></span>
+      </div>
+
+      <div class='cme-template' data-cme='textPhone'>
+        <span>Телефон</span>
+        <span><input placeholder='Номер телефона' name='phone' required class='cme-txt cme-phone' type='tel' maxlength='15'></span>
+      </div>
+
+      <div class='cme-template' data-cme='textArea'>
+        <span>Комментарий</span>
+        <span><textarea name='message' placeholder='Желательно заполнить' required class='cme-txt'></textarea></span>
+      </div>
+
+      <div class='cme-template' data-cme='checkBox'>
+        <span><label><input name='{{:caption}}' type='checkbox'> {{:caption}}</label></span>
+      </div>
+    </div>
+
+    <span class='cme-btn-place'><span></span>
+      <button class='cme-btn'>{{:button}}</button>
+    </span>
+    <div class='callme-result'></div>
+  </form>
+</div>
+<div id='cme-back'></div>

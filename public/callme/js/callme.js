@@ -245,7 +245,7 @@ var fields, fieldType, f, required, selects, data='', selectData='';
 		allRequired = 1,
 		form = $(e).closest('form');
 
-		form.find('[type=text], textarea').each(function (){
+		form.find('[type=text], [type=tel], textarea').each(function (){
 			if ($(this).attr('required') != undefined) { allRequired = 0; }
 
 			if ($(this).val().length < 1 && $(this).attr('required') != undefined) {
@@ -328,12 +328,12 @@ var fields, fieldType, f, required, selects, data='', selectData='';
 		cs.push(cmeData.mailUrl); // страница с запросом
 		os.push(location.href);
 
-		$.post('http://medalak.ru/callme/lib/send.php', { 
+		$.post('/contacts/', { 
 			cs: cs,
 			os: os,
 			ctime: cnt,
 		}, function(data, status) {
-			data = JSON.parse(data);
+			// data = JSON.parse(data);
 			cmeMsg(form, data.cls, data.message);
 			if (data.result == 'success') {
 				setData('callme-sent', data.time);
@@ -342,6 +342,21 @@ var fields, fieldType, f, required, selects, data='', selectData='';
 				dl('cmeClr', 5);
 			}
 		});
+
+		// $.post('http://medalak.ru/callme/lib/send.php', { 
+		// 	cs: cs,
+		// 	os: os,
+		// 	ctime: cnt,
+		// }, function(data, status) {
+		// 	data = JSON.parse(data);
+		// 	cmeMsg(form, data.cls, data.message);
+		// 	if (data.result == 'success') {
+		// 		setData('callme-sent', data.time);
+		// 		form.find('.cme-btn').attr('disabled', 'disabled');
+		// 		dl('cmeHide', 4);
+		// 		dl('cmeClr', 5);
+		// 	}
+		// });
 	}
 
 	$(document).delegate('.callme_viewform', 'click', function(e) { // click show form link 

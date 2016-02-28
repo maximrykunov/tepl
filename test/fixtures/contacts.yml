@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  phone        :string
+#  email        :string
+#  contact_type :string
+#  message      :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  email: MyString
+  contact_type: MyString
+  message: MyString
+
+two:
+  name: MyString
+  phone: MyString
+  email: MyString
+  contact_type: MyString
+  message: MyString

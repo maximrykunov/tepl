@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products, only: :show
   resources :categories, only: :show
   resources :pages, path: '', only: :show
+  resources :contacts
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
