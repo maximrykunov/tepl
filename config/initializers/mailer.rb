@@ -6,5 +6,5 @@ ActionMailer::Base.smtp_settings = {
   :domain => 'medalak.ru',
   :authentication => :plain,
   :user_name => 'teplicy@medalak.ru',
-  :password => 'mDCSFCf2fTpr'
+  :password => ENV['MAIL_PASSWORD']
 }

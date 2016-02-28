@@ -536,7 +536,7 @@ end
 
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 unless AdminUser.find_by(email: 'maxim@rykunov.info')
-  AdminUser.create!(email: 'maxim@rykunov.info', password: '1qa@WS3ed', password_confirmation: '1qa@WS3ed')
+  AdminUser.create!(email: 'maxim@rykunov.info', password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD'])
 end
 
 page_1 = Page.find_or_create_by(system_name: 'dostavka', title: 'Доставка и оплата', content: '<h2>Доставка и оплата</h2>
