@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
   private
 
   def send_email
-    ContactMailer.call_back_mail(@contact)
+    ContactMailer.call_back_mail(@contact).deliver
   end
 
   def contact_params
