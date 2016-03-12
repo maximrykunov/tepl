@@ -24,14 +24,14 @@ main.mobile-center
           td
             | Каркас
           - @product.length.split(', ').each_with_index do |size, idx|
-            td = "#{@product.full_base_price(idx)} руб."
+            td = link_to "#{@product.full_base_price(idx)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
         - @product.sheets.each do |sheet|
           tr
             td
               p Каркас + поликарбонат
               p #{sheet.short_name}
             - @product.length.split(', ').each_with_index do |size, idx|
-              td = "#{@product.full_price(idx, sheet)} руб."
+              td = link_to "#{@product.full_price(idx, sheet)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
         tr
           td
             | Установка

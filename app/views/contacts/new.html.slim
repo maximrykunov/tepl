@@ -1,0 +1,64 @@
+main.mobile-center
+  section.well1.ins3
+    .container
+      h2 Оставить заявку на "#{@product.name}"
+      = form_for(@contact) do |f| 
+
+        - if @contact.errors.any?
+          h3 style="color:red;" Ошибка при сохранении
+
+          ul
+            - @contact.errors.full_messages.each do |msg|
+              li = msg
+
+        = f.hidden_field :contact_type
+        = f.hidden_field :option
+        table
+          tr
+            td width='15%'
+              = f.label :name
+            td
+              = f.text_field :name
+          tr
+            td
+              = f.label :phone
+            td
+              = f.text_field :phone
+          tr
+            td
+              | Теплица
+            td
+              = @product.name
+              - if @length
+                = " #{@product.length.split(', ')[@length]} м"
+              - if @sheet
+                = " ( Каркас + поликарбонат #{@sheet.short_name} )"
+              - else
+                | ( Каркас )
+          tr
+            td
+              | Цена
+            td
+              - if @sheet
+                = "#{@product.full_price(@length, @sheet)} рублей"
+              - else
+                = "#{@product.full_base_price(@length)} рублей"
+          tr
+            td
+              | Установка
+              sup *
+              br/
+              | (по желанию)
+            td
+              = check_box_tag 'install', '1', @install == 1
+              br
+              = "#{@product.full_install_price(@length)} рублей"
+          tr
+            td
+              = f.label :message
+            td
+              = f.text_area :message
+          tr
+            td
+            td
+              = f.submit 'Оставить заявку'
