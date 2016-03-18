@@ -1,11 +1,15 @@
 - title(@title)
 - meta_keywords @meta_keywords
 - meta_description @meta_description
+- discount = 6
 
 main.mobile-center
   section.well1.ins3
     .container
       h2 #{@product.name}
+      - if discount > 0
+        h3 style="color:red;"
+          | скидка на каркас #{discount}%
       .row.off1 style="text-align:center" 
         = image_tag @product.image_2, alt: @product.name
       .row.off1
@@ -24,14 +28,34 @@ main.mobile-center
           td
             | Каркас
           - @product.length.split(', ').each_with_index do |size, idx|
-            td = link_to "#{@product.full_base_price(idx)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+            td
+              - if discount > 0
+                strike
+                  = "#{@product.full_base_price(idx)} руб. "
+                br
+                = link_to "#{@product.full_base_price(idx, discount)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+                | &nbsp; со скидкой
+                font style="color: red"
+                  | &nbsp; #{discount}%
+              - else
+                = link_to "#{@product.full_base_price(idx)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
         - @product.sheets.each do |sheet|
           tr
             td
               p Каркас + поликарбонат
               p #{sheet.short_name}
             - @product.length.split(', ').each_with_index do |size, idx|
-              td = link_to "#{@product.full_price(idx, sheet)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+              td
+                - if discount > 0
+                  strike
+                    = "#{@product.full_price(idx, sheet)} руб. "
+                  br
+                  = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                  | &nbsp; со скидкой
+                  font style="color: red"
+                    | &nbsp; #{discount}%
+                - else
+                  = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
         tr
           td
             | Установка

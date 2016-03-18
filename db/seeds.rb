@@ -9,6 +9,7 @@
 cat_0 = Category.find_or_create_by(name: 'Теплицы "Воля"', system_name: 'teplicy_volya')
 cat_1 = Category.find_or_create_by(name: 'Теплицы "Воля" из оцинкованной квадратной трубы', system_name: 'teplicy_volya_truba', parent: cat_0)
 cat_2 = Category.find_or_create_by(name: 'Теплицы "Воля" из мощного оцинкованного профиля', system_name: 'teplicy_volya_profil', parent: cat_0)
+cat_3 = Category.find_or_create_by(name: 'Аксессуары', system_name: 'acessories')
 
 sheet_1 = Sheet.find_or_create_by(name: 'Поликарбонат "Дачный" 6х2.1 м', short_name: 'Дачный', description: '', price: 1900, cost: 1768, position: 1)
 sheet_2 = Sheet.find_or_create_by(name: 'Поликарбонат "Воля" standart 6х2.1 м', short_name: '"Воля" standart', description: '<p>Сотовый поликарбонат«Воля Standart» имеет стандартную структуру сот. На маркированной стороне листа нанесен специальный защитный UV-слой. Плотность сотового поликарбоната «Воля Standart» составляет 0,6 кг/м2.</p>

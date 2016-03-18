@@ -1,3 +1,5 @@
+- discount = 6
+
 .grid_4.product
   h3.title
     = link_to product.name, product, title: "Подробнее #{product.name}"
@@ -7,7 +9,12 @@
   b
     | Цена от 
     font color="red"
-      | #{product.price} рублей
+      - if discount > 0
+        strike #{product.min_price} рублей
+        | &nbsp; -#{discount}% &nbsp;= 
+        | #{product.min_price(discount)} рублей
+      - else
+       | #{product.min_price} рублей
   br/
   b Размеры теплицы:
   ul

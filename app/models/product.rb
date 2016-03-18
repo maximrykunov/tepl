@@ -46,20 +46,21 @@ class Product < ActiveRecord::Base
     "#{system_name.parameterize}"
   end
 
-  def price
-    base_price + min_sheet.price*base_sheet
+  def min_price(percent = 0)
+    result = base_price*(100-percent)/100 + min_sheet.price*base_sheet
   end
 
-  def full_base_price(extend_count)
-    base_price + extend_count*extend_price
+  def full_base_price(extend_count, percent = 0)
+    result = base_price + extend_count*extend_price
+    result*(100-percent)/100
   end
 
   def full_install_price(extend_count)
     base_install + extend_count*extend_install
   end
 
-  def full_price(extend_count, sheet)
-    full_base_price(extend_count) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
+  def full_price(extend_count, sheet, percent = 0)
+    full_base_price(extend_count, percent) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
   end
 
   def sheets
