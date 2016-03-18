@@ -1,3 +1,4 @@
+- discount = 6
 main.mobile-center
   section.well1.ins3
     .container
@@ -40,9 +41,12 @@ main.mobile-center
               | Цена
             td
               - if @sheet
-                = "#{@product.full_price(@length, @sheet)} рублей"
+                = "#{@product.full_price(@length, @sheet, discount)} рублей"
               - else
-                = "#{@product.full_base_price(@length)} рублей"
+                = "#{@product.full_base_price(@length, discount)} рублей"
+              - if discount > 0
+                br
+                | со скидкой #{discount}% на каркас
           tr
             td
               | Установка
