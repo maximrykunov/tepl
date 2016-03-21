@@ -44,20 +44,20 @@ include('js/jquery.easing.1.3.js');
 
 /* ToTop
  ========================================================*/
-;
-(function ($) {
-    var o = $('html');
-    if (o.hasClass('desktop')) {
-        include('js/jquery.ui.totop.js');
+// ;
+// (function ($) {
+//     var o = $('html');
+//     if (o.hasClass('desktop')) {
+//         include('js/jquery.ui.totop.js');
 
-        $(document).ready(function () {
-            $().UItoTop({
-                easingType: 'easeOutQuart',
-                containerClass: 'toTop fa fa-angle-up'
-            });
-        });
-    }
-})(jQuery);
+//         $(document).ready(function () {
+//             $().UItoTop({
+//                 easingType: 'easeOutQuart',
+//                 containerClass: 'toTop fa fa-angle-up'
+//             });
+//         });
+//     }
+// })(jQuery);
 
 /* EqualHeights
  ========================================================*/
