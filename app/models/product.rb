@@ -60,6 +60,9 @@ class Product < ActiveRecord::Base
   end
 
   def full_price(extend_count, sheet, percent = 0)
+    if prod_price = ProductPrice.find_by(product: self, sheet: sheet, extend_count: extend_count)
+      return prod_price.price
+    end
     full_base_price(extend_count, percent) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
   end
 

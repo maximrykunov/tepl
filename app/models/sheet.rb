@@ -17,6 +17,9 @@
 class Sheet < ActiveRecord::Base
   scope :ordered, -> { order(:position) }
 
+  has_many :product_prices, dependent: :destroy
+
+
   def self.lowest
     @lowest = Sheet.order(price: :asc).first
   end

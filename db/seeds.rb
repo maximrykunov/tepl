@@ -583,3 +583,22 @@ page_2 = Page.find_or_create_by(system_name: 'contacts', title: 'Как с на�
     <h3 class="off1 primary">Электронная почта</h3> 
     <p><a href="mailto:teplicy@medalak.ru">teplicy@medalak.ru</a></p>
 ')
+
+Product.all.each do |product|
+  Sheet.all.each do |sheet|
+    # extend_count = 0
+    # prod_price = ProductPrice.where(product: product, sheet: sheet, extend_count: extend_count).first_or_initialize
+    # if prod_price.new_record?
+    #   prod_price.price = product.full_price(extend_count, sheet)
+    #   prod_price.save
+    # end
+
+    product.length.split(', ').each_with_index do |size, idx|
+      prod_price = ProductPrice.where(product: product, sheet: sheet, extend_count: idx).first_or_initialize
+      if prod_price.new_record?
+        prod_price.price = product.full_price(idx, sheet)
+        prod_price.save
+      end
+    end
+  end
+end
