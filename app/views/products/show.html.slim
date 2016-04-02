@@ -1,7 +1,7 @@
 - title(@title)
 - meta_keywords @meta_keywords
 - meta_description @meta_description
-- discount = 6
+- discount = 0
 
 main.mobile-center
   section.well1.ins3
@@ -54,6 +54,13 @@ main.mobile-center
                   | &nbsp; со скидкой
                   font style="color: red"
                     | &nbsp; #{discount}%
+                - elsif @product.full_price(idx, sheet, discount) > @product.full_product_price(idx, sheet, discount)
+                  strike
+                    = "#{@product.full_price(idx, sheet)} руб. "
+                  br
+                  = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                  font style="color: red"
+                    | &nbsp; со скидкой
                 - else
                   = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
         tr
