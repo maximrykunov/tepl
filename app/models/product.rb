@@ -40,6 +40,8 @@ class Product < ActiveRecord::Base
   belongs_to :category, inverse_of: :products
   belongs_to :min_sheet, class_name: 'Sheet', foreign_key: 'min_sheet_id'
 
+  has_many :product_prices, dependent: :destroy
+
   scope :ordered, -> { order(:position) }
 
   def to_param
