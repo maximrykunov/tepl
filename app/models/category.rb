@@ -19,6 +19,7 @@ class Category < ActiveRecord::Base
   has_many :children, class_name: "Category", foreign_key: "parent_id"
 
   scope :ordered, -> { order(:position) }
+  scope :visible, -> { where(visible: true) }
 
   def to_param
     "#{system_name.parameterize}"

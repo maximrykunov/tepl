@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :get_header_info
 
   def get_header_info
-    @categories = Category.where(parent_id: nil).ordered
+    @top_categories = Category.where(parent_id: nil).visible.ordered
   end
 end
