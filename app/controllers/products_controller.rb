@@ -47,4 +47,22 @@ class ProductsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def detail
+    @product = Product.from_param(params[:id])
+    if @product
+      @title = "#{@product.name}. #{APP_CONFIG['default_title_tail']}"
+      @meta_keywords = "#{@product.name}, #{APP_CONFIG['meta_keywords_tail']}"
+      @meta_description = "#{@product.name} #{APP_CONFIG['meta_description_tail']}"
+
+      options = params[:option].split('-')
+
+      @sheet = Sheet.find_by(id: options[1])
+      @sheet_id = @sheet.try(:id ) || 0
+      @length = options[2].to_i
+      @install = options[3].to_i
+    else
+      redirect_to root_url
+    end
+  end
 end

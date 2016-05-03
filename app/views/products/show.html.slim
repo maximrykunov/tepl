@@ -38,7 +38,11 @@ main.mobile-center
                 font style="color: red"
                   | &nbsp; #{discount}%
               - else
-                = link_to "#{@product.full_base_price(idx)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+                div style="padding-top: 10px;padding-right: 10px;float:left;"
+                  = link_to "#{@product.full_base_price(idx, discount)} руб. ", product_detail_path(option: "#{@product.id}-0-#{idx}-0"), title: @product.full_name(idx)
+                div style="float:left;"
+                  = link_to new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+                    = image_tag 'call.png'
         - @product.sheets.each do |sheet|
           tr
             td
@@ -58,11 +62,19 @@ main.mobile-center
                   strike
                     = "#{@product.full_price(idx, sheet)} руб. "
                   br
-                  = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
-                  font style="color: red"
-                    | &nbsp; со скидкой
+                  div style="padding-top: 10px;padding-right: 10px;float:left;"
+                    = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", product_detail_path(option: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'подробнее...'
+                    font style="color: red"
+                      | &nbsp; со скидкой
+                  div style="float:left;"
+                    = link_to new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                      = image_tag 'call.png'
                 - else
-                  = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                  div style="padding-top: 10px;padding-right: 10px;float:left;"
+                    = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                  div style="float:left;"
+                    = link_to new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                      = image_tag 'call.png'
         tr
           td
             | Установка

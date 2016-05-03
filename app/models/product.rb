@@ -48,8 +48,10 @@ class Product < ActiveRecord::Base
     "#{system_name.parameterize}"
   end
 
-  def min_price(percent = 0)
-    result = base_price*(100-percent)/100 + min_sheet.price*base_sheet
+  def min_price(percent = 0, include_sheet = true)
+    result = base_price*(100-percent)/100
+    result += min_sheet.price*base_sheet if include_sheet
+    result
   end
 
   def full_base_price(extend_count, percent = 0)
@@ -62,14 +64,18 @@ class Product < ActiveRecord::Base
   end
 
   def full_price(extend_count, sheet, percent = 0)
-    full_base_price(extend_count, percent) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
+    result = full_base_price(extend_count, percent)
+    if sheet
+      result = result + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
+    end
+    result
   end
 
   def full_product_price(extend_count, sheet, percent = 0)
     if prod_price = ProductPrice.find_by(product: self, sheet: sheet, extend_count: extend_count)
       return prod_price.price
     end
-    full_base_price(extend_count, percent) + base_sheet*sheet.price + extend_count*extend_sheet*sheet.price
+    full_price(extend_count, sheet, percent)
   end
 
   def sheets
@@ -78,5 +84,19 @@ class Product < ActiveRecord::Base
 
   def self.from_param(param)
     find_by_system_name(param)
+  end
+
+  def full_name(extend_count, sheet = nil)
+    result = "#{name} #{option_name(extend_count, sheet)}"
+  end
+
+  def option_name(extend_count, sheet = nil)
+    result = "#{length.split(', ')[extend_count]} м"
+    if sheet
+      result += " ( Каркас + поликарбонат #{sheet.short_name} )"
+    else
+      result += " ( Каркас )"
+    end
+    result
   end
 end
