@@ -86,7 +86,7 @@ class Product < ActiveRecord::Base
     find_by_system_name(param)
   end
 
-  def full_name(extend_count, sheet = nil)
+  def full_name(extend_count = 0, sheet = nil)
     result = "#{name} #{option_name(extend_count, sheet)}"
   end
 
