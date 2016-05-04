@@ -22,4 +22,16 @@ class PagesController < ApplicationController
     @page = Page.from_param(params[:id])
     render '/shared/404', :status => 404 if @page.nil?
   end
+
+  def market
+    respond_to do |format|
+      format.xml
+      # format.xml do
+      #   headers['Content-Disposition'] = 'attachment;filename="market.xml"'
+      #   render :xml => xml_array.to_xml(:skip_types => true, :root => "Items"),
+      #          :layout => false,
+      #          :content_type => Mime::XML
+      # end
+    end
+  end
 end

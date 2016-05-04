@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :products, only: :show
   resources :categories, only: :show
+  get 'pages/market' => 'pages#market'
   resources :pages, path: '', only: :show
   resources :contacts
 
