@@ -20,8 +20,12 @@ header
                 - category.children.each do |cat|
                   li
                     = link_to cat.name, cat, title: cat.name
+                li
+                  = link_to 'Гарантии качества', '/warranty'
           li
             = link_to 'Доставка и оплата', '/dostavka'
+          li
+            = link_to 'Гарантия', '/warranty'
           li
             = link_to 'Контакты', '/contacts'
           li
