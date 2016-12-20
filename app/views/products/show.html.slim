@@ -83,3 +83,7 @@ main.mobile-center
             | (заказывается отдельно)
           - @product.length.split(', ').each_with_index do |size, idx|
             td = "#{@product.full_install_price(idx)} руб."
+
+      .social_center
+        javascript:
+          document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
