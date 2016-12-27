@@ -15,12 +15,16 @@
 class PagesController < ApplicationController
   def index
     @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
-  	@category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
+    @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
   end
 
   def show
     @page = Page.from_param(params[:id])
-    render '/shared/404', :status => 404 if @page.nil?
+    if @page.nil?
+      @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
+      @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
+      render '/shared/404', :status => 404
+    end
   end
 
   def market
