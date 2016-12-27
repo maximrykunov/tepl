@@ -21,6 +21,11 @@ class ContactsController < ApplicationController
     params[:o] ||= '0-0-0-0'
     @contact = Contact.new(contact_type: 'order', option: params[:o])
     load_options
+    if @product
+      @title = "#{@product.name} - оставить заявку. #{APP_CONFIG['default_title_tail']}"
+      @meta_keywords = "#{@product.name}, #{APP_CONFIG['meta_keywords_tail']}"
+      @meta_description = "#{@product.name} #{APP_CONFIG['meta_description_tail']}"
+    end
   end
 
   def create
