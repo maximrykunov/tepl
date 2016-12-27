@@ -3,3 +3,7 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
+
+User-agent: *
+Host: teplicy.medalak.ru
+sitemap: http://teplicy.medalak.ru/sitemap.xml
