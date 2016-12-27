@@ -8,6 +8,7 @@ html lang="ru"
     meta content="telephone=no" name="format-detection" /
     = favicon_link_tag
     = stylesheet_link_tag "application"
+    = javascript_include_tag "https://vk.com/js/api/share.js?94"
   body
     .page
       = render partial: 'layouts/header'
@@ -15,7 +16,6 @@ html lang="ru"
       = render partial: 'layouts/footer'
     = javascript_include_tag "application"
     script charset="utf-8" src="/callme/js/callme_min.js" type="text/javascript" 
-    = javascript_include_tag "https://vk.com/js/api/share.js?94"
     /! BEGIN JIVOSITE CODE {literal}
     javascript:
       (function(){ var widget_id = 'NDd3temOHQ';

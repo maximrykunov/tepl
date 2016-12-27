@@ -20,3 +20,6 @@ section.well1.ins3
               - cat.products.ordered.each do |product|
                 = render partial: 'products/preview', locals: { product: product}
 
+    .social_center
+      javascript:
+        document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
