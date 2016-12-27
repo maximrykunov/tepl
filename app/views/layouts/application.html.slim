@@ -8,9 +8,6 @@ html lang="en"
     meta content="telephone=no" name="format-detection" /
     = favicon_link_tag
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
-    script charset="utf-8" src="/callme/js/callme.js" type="text/javascript" 
-    = javascript_include_tag "https://vk.com/js/api/share.js?94"
   body
     .page
       /! BEGIN JIVOSITE CODE {literal}
@@ -28,3 +25,6 @@ html lang="en"
       = render partial: 'layouts/header'
       = yield
       = render partial: 'layouts/footer'
+    = javascript_include_tag "application"
+    script charset="utf-8" src="/callme/js/callme_min.js" type="text/javascript" 
+    = javascript_include_tag "https://vk.com/js/api/share.js?94"
