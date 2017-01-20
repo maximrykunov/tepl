@@ -33,6 +33,8 @@ end
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'rich', github: 'kreativgebiet/rich', ref: '3e92749ac77ee171bd6f0643d67b1579cc1c1271'
+gem 'paperclip'
 gem 'phony_rails'
 gem 'russian'
 gem 'dotenv-rails'

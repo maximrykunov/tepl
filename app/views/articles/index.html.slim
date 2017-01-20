@@ -1,0 +1,6 @@
+section.well1.ins3
+  .container
+    - @articles.each do |article|
+      .row.off1
+        .grid_12
+          h3 = link_to article.title, article

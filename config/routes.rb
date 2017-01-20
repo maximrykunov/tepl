@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  mount Rich::Engine => '/rich', :as => 'rich'
+  resources :articles
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

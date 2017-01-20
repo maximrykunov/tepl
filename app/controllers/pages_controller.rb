@@ -16,6 +16,7 @@ class PagesController < ApplicationController
   def index
     @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
     @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
+    @articles = Article.active
   end
 
   def show
