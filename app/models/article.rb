@@ -15,16 +15,19 @@
 #
 
 class Article < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :system_name
+
   belongs_to :product
 
   scope :active, -> { where(visible: true) }
   # scope :ordered, -> { order(:position) }
 
-  def to_param
-    "#{system_name.parameterize}"
-  end
+  # def to_param
+  #   "#{system_name.parameterize}"
+  # end
 
-  def self.from_param(param)
-    find_by(system_name: param)
-  end
+  # def self.from_param(param)
+  #   find_by(system_name: param)
+  # end
 end

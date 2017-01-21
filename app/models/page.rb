@@ -13,7 +13,10 @@
 #
 
 class Page < ActiveRecord::Base
-  def self.from_param(param)
-    find_by_system_name(param)
-  end
+  extend FriendlyId
+  friendly_id :system_name
+
+  # def self.from_param(param)
+  #   find_by_system_name(param)
+  # end
 end

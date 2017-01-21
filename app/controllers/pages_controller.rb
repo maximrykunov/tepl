@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.from_param(params[:id])
+    @page = Page.friendly.find(params[:id])
     if @page.nil?
       @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
       @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')

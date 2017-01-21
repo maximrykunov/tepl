@@ -4,11 +4,11 @@ class ArticlesController < InheritedResources::Base
   end
 
   def show
-    @article = Article.from_param(params[:id])
-    if @page.nil?
+    @article = Article.friendly.find(params[:id])
+    if @article.nil?
       @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
       @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
-      @articles = Article.active
+      @articles = Article.active.limit(5)
       render '/shared/404', :status => 404
     end
   end
