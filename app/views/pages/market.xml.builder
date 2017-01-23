@@ -25,7 +25,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
         # каркас
         product.length.split(', ').each_with_index do |size, idx|
           xml.offer(id: "#{product.id}0#{idx}0", available: "true") do
-            xml.url product_detail_url(product, option: "#{product.id}-0-#{idx}-0")
+            xml.url product_detail_url(product, option: "#{product.url_name(idx)}-#{product.id}-0-#{idx}-0")
             xml.price "#{product.full_base_price(idx)}"
             xml.currencyId "RUR"
             xml.categoryId "55099"
@@ -44,7 +44,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
         product.sheets.each do |sheet|
           product.length.split(', ').each_with_index do |size, idx|
             xml.offer(id: "#{product.id}#{sheet.id}#{idx}0", available: "true") do
-              xml.url product_detail_url(product, option: "#{product.id}-#{sheet.id}-#{idx}-0")
+              xml.url product_detail_url(product, option: "#{product.url_name(idx, sheet)}-#{product.id}-#{sheet.id}-#{idx}-0")
               xml.price "#{product.full_product_price(idx, sheet)}"
               xml.currencyId "RUR"
               xml.categoryId "55099"
