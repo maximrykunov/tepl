@@ -91,7 +91,7 @@ class Product < ActiveRecord::Base
   end
 
   def url_name(extend_count = 0, sheet = nil)
-    result = "#{system_name}-#{option_url_name(extend_count, sheet)}"
+    result = "#{system_name}_#{option_url_name(extend_count, sheet)}"
   end
 
   def option_name(extend_count, sheet = nil)
@@ -107,9 +107,9 @@ class Product < ActiveRecord::Base
   def option_url_name(extend_count, sheet = nil)
     result = "#{length.split(', ')[extend_count]}M"
     if sheet
-      result += "-karkas_i_polycarbonat_#{sheet.system_name}"
+      result += "_karkas_i_polycarbonat_#{sheet.system_name}"
     else
-      result += "-karkas"
+      result += "_karkas"
     end
     result
   end
