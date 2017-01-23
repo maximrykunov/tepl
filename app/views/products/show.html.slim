@@ -33,15 +33,15 @@ main.mobile-center
                 strike
                   = "#{@product.full_base_price(idx)} руб. "
                 br
-                = link_to "#{@product.full_base_price(idx, discount)} руб. ", new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+                = link_to "#{@product.full_base_price(idx, discount)} руб. ", new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
                 | &nbsp; со скидкой
                 font style="color: red"
                   | &nbsp; #{discount}%
               - else
                 div style="padding-top: 10px;padding-right: 10px;float:left;"
-                  = link_to "#{@product.full_base_price(idx, discount)} руб. ", product_detail_path(option: "#{@product.id}-0-#{idx}-0"), title: @product.full_name(idx)
+                  = link_to "#{@product.full_base_price(idx, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx)}-#{@product.id}-0-#{idx}-0"), title: @product.full_name(idx)
                 div style="float:left;"
-                  = link_to new_contact_path(o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
+                  = link_to new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
                     = image_tag 'call.png'
         - @product.sheets.each do |sheet|
           tr
@@ -54,7 +54,7 @@ main.mobile-center
                   strike
                     = "#{@product.full_price(idx, sheet)} руб. "
                   br
-                  = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                  = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
                   | &nbsp; со скидкой
                   font style="color: red"
                     | &nbsp; #{discount}%
@@ -63,17 +63,17 @@ main.mobile-center
                     = "#{@product.full_price(idx, sheet)} руб. "
                   br
                   div style="padding-top: 10px;padding-right: 10px;float:left;"
-                    = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", product_detail_path(option: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                    = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
                     font style="color: red"
                       | &nbsp; со скидкой
                   div style="float:left;"
-                    = link_to new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                    = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
                       = image_tag 'call.png'
                 - else
                   div style="padding-top: 10px;padding-right: 10px;float:left;"
                     = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
                   div style="float:left;"
-                    = link_to new_contact_path(o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                    = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
                       = image_tag 'call.png'
         tr
           td

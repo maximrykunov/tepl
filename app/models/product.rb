@@ -90,12 +90,26 @@ class Product < ActiveRecord::Base
     result = "#{name} #{option_name(extend_count, sheet)}"
   end
 
+  def url_name(extend_count = 0, sheet = nil)
+    result = "#{system_name}-#{option_url_name(extend_count, sheet)}"
+  end
+
   def option_name(extend_count, sheet = nil)
     result = "#{length.split(', ')[extend_count]} м"
     if sheet
       result += " ( Каркас + поликарбонат #{sheet.short_name} )"
     else
       result += " ( Каркас )"
+    end
+    result
+  end
+
+  def option_url_name(extend_count, sheet = nil)
+    result = "#{length.split(', ')[extend_count]}M"
+    if sheet
+      result += "-karkas_i_polycarbonat_#{sheet.system_name}"
+    else
+      result += "-karkas"
     end
     result
   end

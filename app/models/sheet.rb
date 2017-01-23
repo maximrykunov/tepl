@@ -12,6 +12,7 @@
 #  position    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  system_name :string
 #
 
 class Sheet < ActiveRecord::Base
