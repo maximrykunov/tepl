@@ -2,3 +2,7 @@ section.well1.ins3
   .container
     h2 #{@article.title}
     = @article.content.html_safe
+
+    .social_center
+      javascript:
+        document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"https://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
