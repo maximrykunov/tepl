@@ -33,17 +33,17 @@ main.mobile-center
                 font style="color: red"
                   | &nbsp; со скидкой
               div style="float:left;"
-                = link_to new_contact_path(o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
+                = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
                   = image_tag 'call.png'
             - else
               div style="padding-top: 10px;padding-right: 10px;float:left;"
                 = "#{@product.full_price(@length, @sheet, discount)} руб. "
               div style="float:left;"
-                = link_to new_contact_path(o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
+                = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
                   = image_tag 'call.png'
           td
             div style="padding-top: 10px;padding-right: 10px;float:left;"
               = "#{@product.full_install_price(@length)} руб."
             div style="float:left;"
-              = link_to new_contact_path(o: "#{@product.id}-#{@sheet_id}-#{@length}-1"), title: 'оставить заявку'
+              = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-1"), title: 'оставить заявку'
                 = image_tag 'call.png'

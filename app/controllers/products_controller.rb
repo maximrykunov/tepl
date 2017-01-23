@@ -53,7 +53,9 @@ class ProductsController < ApplicationController
     if @product
       options = params[:option].split('-')
 
-      pseudo_name = options.shift
+      if options.size == 5
+        pseudo_name = options.shift
+      end
 
       @sheet = Sheet.find_by(id: options[1])
       @sheet_id = @sheet.try(:id ) || 0
