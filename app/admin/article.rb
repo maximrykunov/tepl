@@ -17,7 +17,7 @@ ActiveAdmin.register Article do
       f.input :system_name
       f.input :meta_keywords
       f.input :meta_description
-      f.input :content, as: :rich, config: { :width => '76%', :height => '400px' }
+      f.input :content
       f.input :visible
     end
 

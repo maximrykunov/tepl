@@ -25,6 +25,10 @@ class PagesController < ApplicationController
       @category_1 = Category.find_by(system_name: 'teplicy_volya_profil')
       @category_2 = Category.find_by(system_name: 'teplicy_volya_truba')
       render '/shared/404', :status => 404
+    else
+      @title = "#{@page.title.gsub('"','')}."
+      @meta_keywords = "#{@page.meta_keywords.gsub('"','')}, #{APP_CONFIG['meta_keywords_tail']}"
+      @meta_description = "#{@page.meta_description.gsub('"','')} #{APP_CONFIG['meta_description_tail']}"
     end
   end
 

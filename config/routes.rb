@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Rich::Engine => '/rich', :as => 'rich'
   resources :articles
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -17,19 +17,6 @@ GIT
       sass-rails
       sprockets (< 4.1)
 
-GIT
-  remote: git://github.com/kreativgebiet/rich.git
-  revision: 3e92749ac77ee171bd6f0643d67b1579cc1c1271
-  ref: 3e92749ac77ee171bd6f0643d67b1579cc1c1271
-  specs:
-    rich (1.4.8)
-      jquery-rails
-      kaminari
-      mime-types
-      rack-raw-upload
-      rails (>= 3.2.0)
-      sass-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,8 +180,6 @@ GEM
       activerecord (>= 3.0)
     puma (3.6.2)
     rack (1.6.5)
-    rack-raw-upload (1.1.1)
-      multi_json
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -296,7 +281,6 @@ DEPENDENCIES
   phony_rails
   puma
   rails (= 4.2.0)
-  rich!
   russian
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
