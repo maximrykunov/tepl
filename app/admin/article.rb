@@ -17,7 +17,11 @@ ActiveAdmin.register Article do
       f.input :system_name
       f.input :meta_keywords, :input_html => { :rows => 3 }
       f.input :meta_description, :input_html => { :rows => 3 }
-      f.input :content, as: :ckeditor
+      if Rails.env.development?
+        f.input :content, as: :ckeditor
+      else
+        f.input :content
+      end
       f.input :visible
     end
 
