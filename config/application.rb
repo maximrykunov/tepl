@@ -21,7 +21,7 @@ module Tepl
     config.i18n.default_locale = :ru
 
     config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w( ckeditor/* )
+    Rails.application.config.assets.precompile += %w(ckeditor/* ckeditor/lang/*)
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
