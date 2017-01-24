@@ -34,6 +34,7 @@ end
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'paperclip'
+gem 'ckeditor'
 gem 'phony_rails'
 gem 'russian'
 gem 'dotenv-rails'

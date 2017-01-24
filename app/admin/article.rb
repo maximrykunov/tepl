@@ -15,9 +15,9 @@ ActiveAdmin.register Article do
     f.inputs do
       f.input :title
       f.input :system_name
-      f.input :meta_keywords
-      f.input :meta_description
-      f.input :content
+      f.input :meta_keywords, :input_html => { :rows => 3 }
+      f.input :meta_description, :input_html => { :rows => 3 }
+      f.input :content, as: :ckeditor
       f.input :visible
     end
 
