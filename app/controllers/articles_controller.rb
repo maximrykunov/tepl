@@ -1,6 +1,7 @@
 class ArticlesController < InheritedResources::Base
   def index
     @articles = Article.active
+    @manuals = Manual.manual.active.ordered
   end
 
   def show

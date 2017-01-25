@@ -41,6 +41,7 @@ class Product < ActiveRecord::Base
   belongs_to :min_sheet, class_name: 'Sheet', foreign_key: 'min_sheet_id'
 
   has_many :product_prices, dependent: :destroy
+  has_many :manuals, dependent: :destroy
 
   scope :ordered, -> { order(:position) }
 

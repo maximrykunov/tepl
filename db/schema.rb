@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124084519) do
+ActiveRecord::Schema.define(version: 20170125100821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(version: 20170124084519) do
     t.datetime "updated_at",   null: false
     t.string   "option"
   end
+
+  create_table "manuals", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.integer  "manual_type"
+    t.string   "url"
+    t.boolean  "visible"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "manuals", ["product_id"], name: "index_manuals_on_product_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "system_name"
@@ -169,6 +181,7 @@ ActiveRecord::Schema.define(version: 20170124084519) do
   add_index "testimonials", ["product_id"], name: "index_testimonials_on_product_id", using: :btree
 
   add_foreign_key "articles", "products"
+  add_foreign_key "manuals", "products"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_prices", "sheets"
   add_foreign_key "products", "categories"
