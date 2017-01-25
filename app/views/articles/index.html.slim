@@ -7,11 +7,21 @@ section.well1.ins3
           .grid_12
             h3 = link_to article.title, article
 
-  - if @manuals
+  - if @categories
     br/
     .container
       h2 Инструкции
-      - @manuals.each do |manual|
+      - @categories.each do |category|
         .row.off1
           .grid_12
-            h3 = link_to manual.name, manual.url, title: "#{manual.name} скачать", target: "_blank"
+            h3 = link_to category.name, category
+            - Manual.joins(:product).manual.active.where("products.category_id = ?", category.id).ordered.each do |manual|
+              strong = link_to manual.product.name, manual.product, title: "Подробнее #{manual.product.name}"
+              ul style="margin-left: 20px;"
+                li 
+                  = link_to manual.name, manual.url, title: "#{manual.name} скачать", target: "_blank"
+                  | &nbsp;
+      / - @manuals.each do |manual|
+      /   .row.off1
+      /     .grid_12
+      /       h3 = link_to manual.name, manual.url, title: "#{manual.name} скачать", target: "_blank"

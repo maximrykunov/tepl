@@ -1,7 +1,8 @@
 class ArticlesController < InheritedResources::Base
   def index
     @articles = Article.active
-    @manuals = Manual.manual.active.ordered
+    @categories = Category.joins(products: :manuals).where("manuals.visible = 't' AND manuals.manual_type = 0").uniq
+    # @manuals = Manual.manual.active.ordered
   end
 
   def show
