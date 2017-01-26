@@ -36,6 +36,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
             xml.vendor "Воля"
             xml.description "#{product.name}. ширина: #{product.width} м, высота: #{product.height} м, длина: #{size} м. Покрытие приобретается отдельно!"
             xml.age "0"
+            xml.sales_notes "бесплатная доствка первые 100 км от Дубны"
             xml.manufacturer_warranty "true"
             xml.country_of_origin "Россия"
           end
@@ -55,6 +56,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
               xml.vendor "Воля"
               xml.description "#{product.name}. ширина: #{product.width} м, высота: #{product.height} м, длина: #{size} м. Покрытие: поликарбонат #{sheet.short_name}"
               xml.age "0"
+              xml.sales_notes "бесплатная доствка первые 100 км от Дубны"
               xml.manufacturer_warranty "true"
               xml.country_of_origin "Россия"
             end
