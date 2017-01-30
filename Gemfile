@@ -31,6 +31,8 @@ group :development do
   gem 'annotate'
 end
 
+gem 'fancybox2-rails', '~> 0.2.8'
+
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'paperclip'
