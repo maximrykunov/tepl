@@ -19,6 +19,9 @@ class Article < ActiveRecord::Base
   friendly_id :system_name
 
   belongs_to :product
+  has_many :images, as: :imageable
+
+  accepts_nested_attributes_for :images, :allow_destroy => true
 
   scope :active, -> { where(visible: true) }
   # scope :ordered, -> { order(:position) }

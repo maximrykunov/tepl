@@ -2,6 +2,12 @@ ActiveAdmin.register Page do
 
   permit_params :system_name, :title, :meta_keywords, :meta_description, :content
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   index do
     selectable_column
     id_column
