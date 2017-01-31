@@ -20,8 +20,8 @@ module Tepl
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
 
+    config.assets.precompile += %w(ckeditor/* ckeditor/lang/*)
     config.assets.precompile += Ckeditor.assets
-    Rails.application.config.assets.precompile += %w(ckeditor/* ckeditor/lang/*)
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     config.active_record.raise_in_transactional_callbacks = true
