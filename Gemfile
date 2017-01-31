@@ -39,7 +39,7 @@ gem 'paperclip'
 gem 'carrierwave'
 # gem 'rmagick'
 gem 'mini_magick'
-gem 'ckeditor'
+gem 'ckeditor', git: "https://github.com/galetahub/ckeditor.git"
 gem 'phony_rails'
 gem 'russian'
 gem 'dotenv-rails'
