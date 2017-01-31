@@ -38,7 +38,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
             xml.age "0"
             xml.delivery "false"
             xml.pickup "true"
-            xml.sales_notes "бесплатная доствка первые 100 км от Дубны"
+            xml.sales_notes "бесплатная доствка по Москве и московской области"
             xml.manufacturer_warranty "true"
             xml.country_of_origin "Россия"
           end
@@ -60,7 +60,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
               xml.age "0"
               xml.delivery "false"
               xml.pickup "true"
-              xml.sales_notes "бесплатная доствка первые 100 км от Дубны"
+              xml.sales_notes "бесплатная доствка по Москве и московской области"
               xml.manufacturer_warranty "true"
               xml.country_of_origin "Россия"
             end
