@@ -14,5 +14,6 @@
 //= require jquery_ujs
 // require turbolinks
 //= require fancybox
+//= require ckeditor/init
 //= require_tree .
 
