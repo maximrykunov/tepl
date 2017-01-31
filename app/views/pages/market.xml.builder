@@ -20,7 +20,7 @@ xml.yml_catalog( date: "#{Date.today.to_s} 0:01") do
 
 
     xml.offers do
-      products = Product.where(system_name: 'strelka')
+      products = Product.where(system_name: ['dvushka', 'treshka', 'strelka', 'strelka3'])
       products.each do |product|
         # каркас
         product.length.split(', ').each_with_index do |size, idx|
