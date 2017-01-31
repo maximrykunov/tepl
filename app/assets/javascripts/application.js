@@ -15,5 +15,6 @@
 // require turbolinks
 //= require fancybox
 //= require ckeditor/init
+//= require ckeditor/config
 //= require_tree .
 
