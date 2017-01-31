@@ -84,6 +84,10 @@ main.mobile-center
           - @product.length.split(', ').each_with_index do |size, idx|
             td = "#{@product.full_install_price(idx)} руб."
 
+    - if @product.add_desc
+      .row.off1
+        = @product.add_desc.html_safe
+
     - if @product.manuals.active
       br/
       .container
