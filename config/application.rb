@@ -23,5 +23,7 @@ module Tepl
     config.assets.precompile += Ckeditor.assets
     Rails.application.config.assets.precompile += %w(ckeditor/* ckeditor/lang/*)
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

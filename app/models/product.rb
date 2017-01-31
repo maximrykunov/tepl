@@ -45,6 +45,7 @@ class Product < ActiveRecord::Base
 
   has_many :product_prices, dependent: :destroy
   has_many :manuals, dependent: :destroy
+  has_many :images, as: :imageable
 
   scope :ordered, -> { order(:position) }
 
