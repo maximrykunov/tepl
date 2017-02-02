@@ -102,9 +102,9 @@ class Product < ActiveRecord::Base
   def option_name(extend_count, sheet = nil)
     result = "#{length.split(', ')[extend_count]} м"
     if sheet
-      result += " ( Каркас + поликарбонат #{sheet.short_name} )"
+      result += " (Каркас + поликарбонат #{sheet.short_name})"
     else
-      result += " ( Каркас )"
+      result += " (Каркас)"
     end
     result
   end

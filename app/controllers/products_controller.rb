@@ -41,8 +41,8 @@ class ProductsController < ApplicationController
     @product = Product.from_param(params[:id])
     if @product
       @title = "#{@product.name}. #{APP_CONFIG['default_title_tail']}"
-      @meta_keywords = "#{@product.name}, #{APP_CONFIG['meta_keywords_tail']}"
-      @meta_description = "#{@product.name} #{APP_CONFIG['meta_description_tail']}"
+      @meta_keywords = "#{@product.name}, #{@product.meta_keywords || APP_CONFIG['meta_keywords_tail']}"
+      @meta_description = "#{@product.name}, #{@product.meta_description || APP_CONFIG['meta_description_tail']}"
     else
       redirect_to root_url
     end
