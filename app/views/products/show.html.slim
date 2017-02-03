@@ -71,7 +71,7 @@ main.mobile-center
                       = image_tag 'call.png'
                 - else
                   div style="padding-top: 10px;padding-right: 10px;float:left;"
-                    = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                    = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
                   div style="float:left;"
                     = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
                       = image_tag 'call.png'
