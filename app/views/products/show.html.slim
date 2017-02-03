@@ -47,7 +47,7 @@ main.mobile-center
           tr
             td
               p Каркас + поликарбонат
-              p #{sheet.short_name}
+              p #{product_sheet_name(@porduct, sheet)}
             - @product.length.split(', ').each_with_index do |size, idx|
               td
                 - if discount > 0

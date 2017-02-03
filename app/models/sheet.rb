@@ -13,6 +13,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  system_name :string
+#  link        :string
 #
 
 class Sheet < ActiveRecord::Base
