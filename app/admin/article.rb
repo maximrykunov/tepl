@@ -28,11 +28,7 @@ ActiveAdmin.register Article do
       f.input :system_name
       f.input :meta_keywords, :input_html => { :rows => 3 }
       f.input :meta_description, :input_html => { :rows => 3 }
-      if Rails.env.development?
-        f.input :content, as: :ckeditor
-      else
-        f.input :content
-      end
+      f.input :content, as: :ckeditor
 
       f.inputs "Дополнительные изображения" do
         f.has_many :images, :allow_destroy => true do |obj_image|
