@@ -14,7 +14,7 @@
         | &nbsp; -#{discount}% &nbsp;= 
         | #{product.min_price(discount)} рублей
       - else
-       | #{product.min_price} рублей
+        = product_min_price(product)
   br/
   b Размеры теплицы:
   ul

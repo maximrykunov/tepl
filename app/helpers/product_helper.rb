@@ -29,4 +29,14 @@ module ProductHelper
     result.html_safe
   end
 
+  def product_min_price(product)
+    min_price = product.min_price
+    if product_price = ProductPrice.where(product_id: product.id, sheet_id: product.min_sheet_id).first
+      price = product_price.price
+    else
+      price = min_price
+    end
+    "#{price} рублей"
+  end
+
 end
