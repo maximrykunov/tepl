@@ -99,6 +99,7 @@ main.mobile-center
             li
               = link_to manual.name, manual.url, title: "#{manual.name} скачать", target: "_blank"
 
+      = render partial: 'products/relation', locals: { product: @product}
 
     .container
       .social_center

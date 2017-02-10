@@ -53,14 +53,26 @@ class Product < ActiveRecord::Base
   has_many :images, as: :imageable
 
   scope :ordered, -> { order(:position) }
+  scope :relative, -> (product) {
+    Product.where.not(id: product.id).order("
+    CASE
+      WHEN product_type = 'acc' THEN '1'
+      WHEN (product_type = 'tepl' AND category_id = #{product.category_id}) THEN '2'
+      WHEN (product_type = 'tepl' AND category_id != #{product.category_id}) THEN '3'
+    END")
+  }
 
   def to_param
     "#{system_name.parameterize}"
   end
 
   def min_price(percent = 0, include_sheet = true)
-    result = base_price*(100-percent)/100
-    result += min_sheet.price*base_sheet if include_sheet
+    if tepl?
+      result = base_price*(100-percent)/100
+      result += min_sheet.price*base_sheet if include_sheet
+    else
+      result = price*(100-percent)/100
+    end
     result
   end
 

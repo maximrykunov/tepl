@@ -1,0 +1,10 @@
+- relative_products = Product.relative(product).limit(3)
+br/
+.container
+  h3 Рекомендуем посмотреть
+  .row.off1
+    .grid_12
+      .row
+        - relative_products.each do |product|
+          = render partial: 'products/preview', locals: { product: product}
+
