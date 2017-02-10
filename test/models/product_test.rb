@@ -37,6 +37,7 @@
 #  add_desc         :text
 #  meta_keywords    :text
 #  meta_description :text
+#  product_type     :string
 #
 
 require 'test_helper'

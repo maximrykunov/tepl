@@ -6,7 +6,8 @@ ActiveAdmin.register Product do
 permit_params :name, :system_name, :brand_type, :price, :image, :image_2, :width, :height, :length,
   :small_desc, :desc, :base_length, :base_weight, :base_price, :base_cost, :base_install, :base_sheet,
   :extend_length, :extend_weight, :extend_price, :extend_cost, :extend_install, :extend_sheet, :position,
-  :div_weight, :div_price, :div_cost, :min_sheet_id, :category_id, :add_desc, :meta_keywords, :meta_description
+  :div_weight, :div_price, :div_cost, :min_sheet_id, :category_id, :add_desc, :meta_keywords, :meta_description,
+  :product_type
 #
 # or
 #
@@ -21,6 +22,7 @@ permit_params :name, :system_name, :brand_type, :price, :image, :image_2, :width
     id_column
     column :name
     column :system_name
+    column :product_type
     column :brand_type
     actions
   end
@@ -31,6 +33,7 @@ permit_params :name, :system_name, :brand_type, :price, :image, :image_2, :width
       f.input :min_sheet
       f.input :name
       f.input :system_name
+      f.input :product_type
       f.input :brand_type
       f.input :meta_keywords, :input_html => { :rows => 3 }
       f.input :meta_description, :input_html => { :rows => 3 }

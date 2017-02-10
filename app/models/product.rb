@@ -37,11 +37,16 @@
 #  add_desc         :text
 #  meta_keywords    :text
 #  meta_description :text
+#  product_type     :string
 #
 
 class Product < ActiveRecord::Base
+  extend Enumerize
+
   belongs_to :category, inverse_of: :products
   belongs_to :min_sheet, class_name: 'Sheet', foreign_key: 'min_sheet_id'
+
+  enumerize :product_type, in: [:tepl, :acc], default: :tepl, predicates: true, scope: true
 
   has_many :product_prices, dependent: :destroy
   has_many :manuals, dependent: :destroy
