@@ -2,8 +2,8 @@
 
 .grid_4.product[itemscope itemtype="http://schema.org/Product"]
   h3.title[itemprop="name"]
-    = link_to product.name, product, title: "Подробнее #{product.name}"
-  = link_to product, title: "Подробнее #{product.name}" do
+    = link_to product.name, product, title: "#{product.name}"
+  = link_to product, title: "#{product.name}" do
     = image_tag product.image, alt: product.name, itemprop: "image"
   br/
   span[itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"]
