@@ -1,36 +1,43 @@
 - discount = 0
 
-.grid_4.product
-  h3.title
+.grid_4.product[itemscope itemtype="http://schema.org/Product"]
+  h3.title[itemprop="name"]
     = link_to product.name, product, title: "Подробнее #{product.name}"
   = link_to product, title: "Подробнее #{product.name}" do
-    = image_tag product.image, alt: product.name
+    = image_tag product.image, alt: product.name, itemprop: "image"
   br/
+  span[itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"]
+    meta itemprop="priceCurrency" content="RUB"
+    meta itemprop="lowPrice" content="#{product.min_price(discount)}"
+    - if product.tepl?
+      b
+        | Цена от 
+        font color="red"
+          - if discount > 0
+            strike #{product.min_price} рублей
+            | &nbsp; -#{discount}% &nbsp;= 
+            | #{product.min_price(discount)} рублей
+          - else
+            = product_min_price(product)
+      br/
+    - else
+      b
+        | Цена от 
+        font color="red"
+          - if discount > 0
+            strike #{product.min_price} рублей
+            | &nbsp; -#{discount}% &nbsp;= 
+            | #{product.min_price(discount)} рублей
+          - else
+            = product_min_price(product)
   - if product.tepl?
-    b
-      | Цена от 
-      font color="red"
-        - if discount > 0
-          strike #{product.min_price} рублей
-          | &nbsp; -#{discount}% &nbsp;= 
-          | #{product.min_price(discount)} рублей
-        - else
-          = product_min_price(product)
-    br/
-    b Размеры теплицы:
-    ul
-      li ширина: #{product.width};
-      li высота: #{product.height};
-      li длина: #{product.length}
+    span[itemprop="description"]
+      b Размеры теплицы:
+      ul
+        li ширина: #{product.width};
+        li высота: #{product.height};
+        li длина: #{product.length}
   - else
-    b
-      | Цена от 
-      font color="red"
-        - if discount > 0
-          strike #{product.min_price} рублей
-          | &nbsp; -#{discount}% &nbsp;= 
-          | #{product.min_price(discount)} рублей
-        - else
-          = product_min_price(product)
+    span[itemprop="description"]
   p.more
     = link_to 'Подробнее...', product, title: "Подробнее #{product.name}"

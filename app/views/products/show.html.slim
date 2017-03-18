@@ -5,19 +5,20 @@
 
 main.mobile-center
   section.well1.ins3
-    .container
-      h2 #{@product.name}
+    .container[itemscope itemtype="http://schema.org/Product"]
+      h1[itemprop="name"] #{@product.name}
       - if @product.tepl?
 
         - if discount > 0
           h3 style="color:red;"
             | скидка на каркас #{discount}%
         .row.off1 style="text-align:center" 
-          = image_tag @product.image_2, alt: @product.name
-        .row.off1
+          = image_tag @product.image_2, alt: @product.name, itemprop: "image"
+        .row.off1[itemprop="description"]
           = @product.desc.html_safe
 
-        table
+        table[itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"]
+          meta itemprop="priceCurrency" content="RUB"
           tr.dark
             td
               | Длина
@@ -30,6 +31,8 @@ main.mobile-center
             td
               | Каркас
             - @product.length.split(', ').each_with_index do |size, idx|
+              - if idx == 0
+                meta itemprop="lowPrice" content="#{@product.full_base_price(idx)}"
               td
                 - if discount > 0
                   strike
