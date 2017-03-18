@@ -17,77 +17,78 @@ main.mobile-center
         .row.off1[itemprop="description"]
           = @product.desc.html_safe
 
-        table[itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"]
+        span[itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"]
           meta itemprop="priceCurrency" content="RUB"
-          tr.dark
-            td
-              | Длина
-            - @product.length.split(', ').each_with_index do |size, idx|
+          table
+            tr.dark
               td
-                = "#{size} метра"
-                br/
-                = product_weight(@product, idx)
-          tr
-            td
-              | Каркас
-            - @product.length.split(', ').each_with_index do |size, idx|
-              - if idx == 0
-                meta itemprop="lowPrice" content="#{@product.full_base_price(idx)}"
-              td
-                - if discount > 0
-                  strike
-                    = "#{@product.full_base_price(idx)} руб. "
-                  br
-                  = link_to "#{@product.full_base_price(idx, discount)} руб. ", new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
-                  | &nbsp; со скидкой
-                  font style="color: red"
-                    | &nbsp; #{discount}%
-                - else
-                  div style="padding-top: 10px;padding-right: 10px;float:left;"
-                    = link_to "#{@product.full_base_price(idx, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx)}-#{@product.id}-0-#{idx}-0"), title: @product.full_name(idx)
-                  div style="float:left;"
-                    = link_to new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
-                      = image_tag 'call.png'
-          - @product.sheets.each do |sheet|
+                | Длина
+              - @product.length.split(', ').each_with_index do |size, idx|
+                td
+                  = "#{size} метра"
+                  br/
+                  = product_weight(@product, idx)
             tr
               td
-                p Каркас + поликарбонат
-                p #{product_sheet_name(@porduct, sheet)}
+                | Каркас
               - @product.length.split(', ').each_with_index do |size, idx|
+                - if idx == 0
+                  meta itemprop="lowPrice" content="#{@product.full_base_price(idx)}"
                 td
                   - if discount > 0
                     strike
-                      = "#{@product.full_price(idx, sheet)} руб. "
+                      = "#{@product.full_base_price(idx)} руб. "
                     br
-                    = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                    = link_to "#{@product.full_base_price(idx, discount)} руб. ", new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
                     | &nbsp; со скидкой
                     font style="color: red"
                       | &nbsp; #{discount}%
-                  - elsif @product.full_price(idx, sheet, discount) > @product.full_product_price(idx, sheet, discount)
-                    strike
-                      = "#{@product.full_price(idx, sheet)} руб. "
-                    br
-                    div style="padding-top: 10px;padding-right: 10px;float:left;"
-                      = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
-                      font style="color: red"
-                        | &nbsp; со скидкой
-                    div style="float:left;"
-                      = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
-                        = image_tag 'call.png'
                   - else
                     div style="padding-top: 10px;padding-right: 10px;float:left;"
-                      = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                      = link_to "#{@product.full_base_price(idx, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx)}-#{@product.id}-0-#{idx}-0"), title: @product.full_name(idx)
                     div style="float:left;"
-                      = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                      = link_to new_contact_path(name: @product.full_name(idx), o: "#{@product.id}-0-#{idx}-0"), title: 'оставить заявку'
                         = image_tag 'call.png'
-          tr
-            td
-              | Установка
-              sup *
-              br/
-              | (заказывается отдельно)
-            - @product.length.split(', ').each_with_index do |size, idx|
-              td = "#{@product.full_install_price(idx)} руб."
+            - @product.sheets.each do |sheet|
+              tr
+                td
+                  p Каркас + поликарбонат
+                  p #{product_sheet_name(@porduct, sheet)}
+                - @product.length.split(', ').each_with_index do |size, idx|
+                  td
+                    - if discount > 0
+                      strike
+                        = "#{@product.full_price(idx, sheet)} руб. "
+                      br
+                      = link_to "#{@product.full_price(idx, sheet, discount)} руб.", new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                      | &nbsp; со скидкой
+                      font style="color: red"
+                        | &nbsp; #{discount}%
+                    - elsif @product.full_price(idx, sheet, discount) > @product.full_product_price(idx, sheet, discount)
+                      strike
+                        = "#{@product.full_price(idx, sheet)} руб. "
+                      br
+                      div style="padding-top: 10px;padding-right: 10px;float:left;"
+                        = link_to "#{@product.full_product_price(idx, sheet, discount)} руб.", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                        font style="color: red"
+                          | &nbsp; со скидкой
+                      div style="float:left;"
+                        = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                          = image_tag 'call.png'
+                    - else
+                      div style="padding-top: 10px;padding-right: 10px;float:left;"
+                        = link_to "#{@product.full_price(idx, sheet, discount)} руб. ", product_detail_path(option: "#{@product.url_name(idx, sheet)}-#{@product.id}-#{sheet.id}-#{idx}-0"), title: @product.full_name(idx, sheet)
+                      div style="float:left;"
+                        = link_to new_contact_path(name: @product.full_name(idx, sheet), o: "#{@product.id}-#{sheet.id}-#{idx}-0"), title: 'оставить заявку'
+                          = image_tag 'call.png'
+            tr
+              td
+                | Установка
+                sup *
+                br/
+                | (заказывается отдельно)
+              - @product.length.split(', ').each_with_index do |size, idx|
+                td = "#{@product.full_install_price(idx)} руб."
 
       - if @product.add_desc
         .row.off1

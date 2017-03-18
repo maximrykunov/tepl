@@ -19,7 +19,6 @@
             | #{product.min_price(discount)} рублей
           - else
             = product_min_price(product)
-      br/
     - else
       b
         | Цена от 
@@ -30,6 +29,7 @@
             | #{product.min_price(discount)} рублей
           - else
             = product_min_price(product)
+    br/
   - if product.tepl?
     span[itemprop="description"]
       b Размеры теплицы:
@@ -39,5 +39,6 @@
         li длина: #{product.length}
   - else
     span[itemprop="description"]
+      = product.name
   p.more
     = link_to 'Подробнее...', product, title: "Подробнее #{product.name}"
