@@ -4,7 +4,7 @@ section.well1.ins3
   .container
     | Наша компания предлагает приобрести теплицы и парники от широкоизвестного производителя - компании "ВОЛЯ". В нашем ассортименте представлены теплицы из оцинкованной квадратной трубы, а также оцинкованного профиля. Также мы предлагаем сотовый поликарбонат для покрытия ваших теплиц.
     br
-    | На нашем сайте вы можете купить качественные парники и теплицы по привлекательной цене.
+    | На нашем сайте вы можете купить качественные парники и теплицы Воля по привлекательной цене.
     br
     / strong
     /   | До 1 марта 2017 года мы предлагаем специальные цены на теплицы.
@@ -27,11 +27,11 @@ section.well1.ins3
 
 section.well1.ins3
   .container
-    h2 Теплицы Воля
+    / h2 Теплицы Воля
     - if @category_1
       .row.off1
         .grid_12
-          h3 = link_to @category_1.name, @category_1
+          h2 = link_to @category_1.name, @category_1
           .row
             - @category_1.products.ordered.each do |product|
               = render partial: 'products/preview', locals: { product: product}
@@ -39,7 +39,7 @@ section.well1.ins3
     - if @category_2
       .row.off1
         .grid_12
-          h3 = link_to @category_2.name, @category_2
+          h2 = link_to @category_2.name, @category_2
           .row
             - @category_2.products.ordered.each do |product|
               = render partial: 'products/preview', locals: { product: product}

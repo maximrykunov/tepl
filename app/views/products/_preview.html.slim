@@ -32,6 +32,10 @@
     br/
   - if product.tepl?
     span[itemprop="description"]
+      - if product.small_desc
+        span 
+          = "#{product.small_desc} "
+        br/
       b Размеры теплицы:
       ul
         li ширина: #{product.width};
