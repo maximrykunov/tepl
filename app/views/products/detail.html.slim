@@ -5,46 +5,52 @@
 
 main.mobile-center
   section.well1.ins3
-    .container
-      h2 
+    .container[itemscope itemtype="http://schema.org/Product"]
+      h2 itemprop="name"
         = link_to @product.name, @product
+        br/
+        = product_detail_header(@product, @length, @sheet)
       / h2 #{@product.option_name(@length, @sheet)}
-      h2 #{product_detail_header(@product, @length, @sheet)}
+      / h2 #{product_detail_header(@product, @length, @sheet)}
       .row.off1 style="text-align:center" 
-        = image_tag @product.image_2, alt: @product.name
-      .row.off1
+        = image_tag @product.image_2, alt: @product.name, itemprop: "image"
+      .row.off1 itemprop="description"
         = @product.desc.html_safe
 
-      table
-        tr.dark
-          td
-            | Цена
-          td
-            | Установка
-            sup *
-            | (заказывается отдельно)
-        tr
-          td
-            - if @product.full_price(@length, @sheet, discount) > @product.full_product_price(@length, @sheet, discount)
+      span[itemprop="offers" itemscope itemtype="http://schema.org/Offer"]
+        meta itemprop="priceCurrency" content="RUB"
+        table
+          tr.dark
+            td
+              | Цена
+            td
+              | Установка
+              sup *
+              | (заказывается отдельно)
+          tr
+            td
+              - if @product.full_price(@length, @sheet, discount) > @product.full_product_price(@length, @sheet, discount)
+                meta itemprop="price" content="#{@product.full_product_price(@length, @sheet, discount)}"
+                div style="padding-top: 10px;padding-right: 10px;float:left;"
+                  strike
+                    = "#{@product.full_price(@length, @sheet)} руб. "
+                  | &nbsp;&nbsp;&nbsp;
+                  = "#{@product.full_product_price(@length, @sheet, discount)} руб."
+                  font style="color: red"
+                    | &nbsp; со скидкой
+                div style="float:left;"
+                  = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
+                    = image_tag 'call.png'
+              - else
+                meta itemprop="price" content="#{@product.full_price(@length, @sheet, discount)}"
+                div style="padding-top: 10px;padding-right: 10px;float:left;"
+                  = "#{@product.full_price(@length, @sheet, discount)} руб. "
+                div style="float:left;"
+                  = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
+                    = image_tag 'call.png'
+            td
               div style="padding-top: 10px;padding-right: 10px;float:left;"
-                strike
-                  = "#{@product.full_price(@length, @sheet)} руб. "
-                | &nbsp;&nbsp;&nbsp;
-                = "#{@product.full_product_price(@length, @sheet, discount)} руб."
-                font style="color: red"
-                  | &nbsp; со скидкой
+                = "#{@product.full_install_price(@length)} руб."
               div style="float:left;"
-                = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
+                = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-1"), title: 'оставить заявку'
                   = image_tag 'call.png'
-            - else
-              div style="padding-top: 10px;padding-right: 10px;float:left;"
-                = "#{@product.full_price(@length, @sheet, discount)} руб. "
-              div style="float:left;"
-                = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-0"), title: 'оставить заявку'
-                  = image_tag 'call.png'
-          td
-            div style="padding-top: 10px;padding-right: 10px;float:left;"
-              = "#{@product.full_install_price(@length)} руб."
-            div style="float:left;"
-              = link_to new_contact_path(name: @product.full_name(@length, @sheet), o: "#{@product.id}-#{@sheet_id}-#{@length}-1"), title: 'оставить заявку'
-                = image_tag 'call.png'
