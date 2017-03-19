@@ -18,7 +18,8 @@
             | &nbsp; -#{discount}% &nbsp;= 
             | #{product.min_price(discount)} рублей
           - else
-            = product_min_price(product)
+            / = product_min_price(product)
+            = product_min_base_price(product)
     - else
       b
         | Цена от 

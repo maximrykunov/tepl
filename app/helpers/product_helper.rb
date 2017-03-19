@@ -39,4 +39,8 @@ module ProductHelper
     "#{price} рублей"
   end
 
+  def product_min_base_price(product)
+    "#{product.full_base_price(0)} рублей"
+  end
+
 end
