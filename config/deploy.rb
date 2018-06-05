@@ -1,5 +1,6 @@
 # Change these
-server '178.62.132.38', roles: [:web, :app, :db], primary: true
+# server '178.62.132.38', roles: [:web, :app, :db], primary: true
+server '89.223.88.61', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:maximrykunov/tepl.git'
 set :application,     'tepl'
@@ -8,6 +9,8 @@ set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
 # Don't change these unless you know what you're doing
+set :rbenv_ruby,      File.read('.ruby-version').strip
+set :rbenv_path, '/home/deploy/.rbenv'
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production

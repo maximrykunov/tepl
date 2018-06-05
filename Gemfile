@@ -60,11 +60,12 @@ gem 'friendly_id', '~> 5.1.0'
 # gem 'debugger', group: [:development, :test]
 
 group :development do
-    gem 'capistrano',         require: false
-    gem 'capistrano-rvm',     require: false
-    gem 'capistrano-rails',   require: false
-    gem 'capistrano-bundler', require: false
-    gem 'capistrano3-puma',   require: false
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rake', require: false
+  gem 'capistrano-rbenv'
 end
 
 gem 'puma'
