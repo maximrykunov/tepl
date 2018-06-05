@@ -197,27 +197,9 @@ ActiveRecord::Schema.define(version: 20170210102951) do
     t.string   "link"
   end
 
-  create_table "testimonials", force: :cascade do |t|
-    t.string   "author"
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "visible"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "plus"
-    t.string   "minus"
-    t.string   "city"
-    t.date     "date"
-    t.integer  "mark"
-  end
-
-  add_index "testimonials", ["product_id"], name: "index_testimonials_on_product_id", using: :btree
-
   add_foreign_key "articles", "products"
   add_foreign_key "manuals", "products"
   add_foreign_key "product_prices", "products"
   add_foreign_key "product_prices", "sheets"
   add_foreign_key "products", "categories"
-  add_foreign_key "testimonials", "products"
 end
