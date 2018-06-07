@@ -16,7 +16,7 @@
 #  link        :string
 #
 
-class Sheet < ActiveRecord::Base
+class Sheet < ApplicationRecord
   scope :ordered, -> { order(:position) }
 
   has_many :product_prices, dependent: :destroy

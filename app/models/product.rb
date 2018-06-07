@@ -40,7 +40,7 @@
 #  product_type     :string
 #
 
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   extend Enumerize
 
   belongs_to :category, inverse_of: :products

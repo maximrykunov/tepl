@@ -12,9 +12,9 @@
 #  updated_at  :datetime         not null
 #
 
-class Manual < ActiveRecord::Base
+class Manual < ApplicationRecord
   enum manual_type: [:manual, :video, :panorama]
-  
+
   belongs_to :product
 
   scope :active, -> { where(visible: true) }

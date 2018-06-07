@@ -11,7 +11,7 @@
 #  updated_at   :datetime         not null
 #
 
-class ProductPrice < ActiveRecord::Base
+class ProductPrice < ApplicationRecord
   belongs_to :product
   belongs_to :sheet
 

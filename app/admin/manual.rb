@@ -23,7 +23,7 @@ permit_params :name, :product_id, :manual_type, :url, :visible
     actions
   end
 
-  around_filter do |controller, action|
+  around_action do |controller, action|
     Product.class_eval do
       alias :__active_admin_to_param :to_param
       def to_param() id.to_s end

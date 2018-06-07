@@ -2,7 +2,7 @@ ActiveAdmin.register Category do
 
   permit_params :name, :parent_id, :system_name, :description, :visible, :position
 
-  around_filter do |controller, action|
+  around_action do |controller, action|
     Category.class_eval do
       alias :__active_admin_to_param :to_param
       def to_param() id.to_s end

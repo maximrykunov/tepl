@@ -72,7 +72,7 @@ permit_params :name, :system_name, :brand_type, :price, :image, :image_2, :width
     actions
   end
 
-  around_filter do |controller, action|
+  around_action do |controller, action|
     Product.class_eval do
       alias :__active_admin_to_param :to_param
       def to_param() id.to_s end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.8'
+gem 'rails', '~> 5.0'
 gem 'slim-rails', '~> 3.0'
 
 gem 'enumerize'
@@ -12,7 +12,7 @@ gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -32,7 +32,7 @@ group :development do
   gem 'annotate'
 end
 
-gem 'fancybox2-rails', '~> 0.2.8'
+gem 'fancybox2-rails'
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
@@ -46,7 +46,6 @@ gem 'russian'
 gem 'dotenv-rails'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'yaml_db'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

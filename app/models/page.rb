@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   extend FriendlyId
   friendly_id :system_name
 

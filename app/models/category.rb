@@ -13,7 +13,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   has_many :products, inverse_of: :category
   belongs_to :parent, class_name: "Category"
   has_many :children, class_name: "Category", foreign_key: "parent_id"

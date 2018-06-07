@@ -13,7 +13,7 @@
 #  option       :string
 #
 
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
 
   phony_normalize :phone, default_country_code: 'RU'
 
