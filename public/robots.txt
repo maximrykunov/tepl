@@ -5,5 +5,5 @@
 # Disallow: /
 
 User-agent: *
-Host: teplicy.medalak.ru
-sitemap: http://teplicy.medalak.ru/sitemap.xml
+Host: medalak.ru
+sitemap: http://medalak.ru/sitemap.xml
