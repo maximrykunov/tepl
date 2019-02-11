@@ -60,6 +60,8 @@ gem 'friendly_id', '~> 5.1.0'
 # gem 'debugger', group: [:development, :test]
 
 group :development do
+  gem "pry"
+  gem "pry-rails"
   gem 'capistrano'
   gem 'capistrano3-puma'
   gem 'capistrano-rails', require: false

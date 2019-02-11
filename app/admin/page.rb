@@ -1,6 +1,6 @@
 ActiveAdmin.register Page do
 
-  permit_params :system_name, :title, :meta_keywords, :meta_description, :content
+  permit_params :system_name, :app_id, :title, :meta_keywords, :meta_description, :content
 
   controller do
     def find_resource
@@ -12,6 +12,7 @@ ActiveAdmin.register Page do
     selectable_column
     id_column
     column :title
+    column :app
     column :system_name
     actions
   end
@@ -19,6 +20,7 @@ ActiveAdmin.register Page do
   form do |f|
     f.inputs do
       f.input :title
+      f.input :app
       f.input :system_name
       f.input :meta_keywords, :input_html => { :rows => 3 }
       f.input :meta_description, :input_html => { :rows => 3 }

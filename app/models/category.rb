@@ -16,6 +16,7 @@
 class Category < ApplicationRecord
   has_many :products, inverse_of: :category
   belongs_to :parent, class_name: "Category"
+  belongs_to :app, inverse_of: :categories
   has_many :children, class_name: "Category", foreign_key: "parent_id"
 
   scope :ordered, -> { order(:position) }

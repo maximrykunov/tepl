@@ -12,24 +12,25 @@ section.well1.ins3
     /   | До 15 октября 2016 года мы предлагаем специальные цены на теплицы.
 
 section.well1.ins3
-  .container
-    h2 Теплицы Воля
-    - if @category_1
-      .row.off1
-        .grid_12
-          h3 = link_to @category_1.name, @category_1
-
-    - if @category_2
-      .row.off1
-        .grid_12
-          h3 = link_to @category_2.name, @category_2
-
-  - if @articles
-    br
-
+  - if current_app.teplicy?
     .container
-      h2 Дополнительная информация
-      - @articles.each do |article|
+      h2 Теплицы Воля
+      - if @category_1
         .row.off1
           .grid_12
-            h3 = link_to article.title, article
+            h3 = link_to @category_1.name, @category_1
+
+      - if @category_2
+        .row.off1
+          .grid_12
+            h3 = link_to @category_2.name, @category_2
+
+    - if @articles
+      br
+
+      .container
+        h2 Дополнительная информация
+        - @articles.each do |article|
+          .row.off1
+            .grid_12
+              h3 = link_to article.title, article

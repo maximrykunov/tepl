@@ -19,6 +19,7 @@ class Article < ApplicationRecord
   friendly_id :system_name
 
   belongs_to :product
+  belongs_to :app, inverse_of: :articles
   has_many :images, as: :imageable
 
   accepts_nested_attributes_for :images, :allow_destroy => true

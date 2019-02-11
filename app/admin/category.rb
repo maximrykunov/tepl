@@ -1,6 +1,6 @@
 ActiveAdmin.register Category do
 
-  permit_params :name, :parent_id, :system_name, :description, :visible, :position
+  permit_params :name, :parent_id, :app_id, :system_name, :description, :visible, :position
 
   around_action do |controller, action|
     Category.class_eval do
