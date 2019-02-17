@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   constraints(SubdomainRoutes) do
     # resources :blogs, only: [:new]
-    root 'pages#index_all'
+    root 'pages#index'
   end
   
   constraints(!SubdomainRoutes) do

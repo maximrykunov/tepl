@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
   before_action :get_header_info
 
   def current_app
-    @current_app ||= App.find_by(sub_domain: request.subdomain)
+    return @current_app if defined? @current_app
+
+    sub_domain = request.subdomain
+    # Временно пока нет остновного лендинга
+    sub_domain = 'teplicy' if sub_domain.empty?
+    p "====#{sub_domain}"
+    @current_app ||= App.find_by(sub_domain: sub_domain)
   end
   helper_method :current_app
 
