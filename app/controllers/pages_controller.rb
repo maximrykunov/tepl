@@ -14,6 +14,10 @@
 
 class PagesController < ApplicationController
   def index
+    @category_1 = Category.find_by(system_name: 'teplicy_volya_profil', app: current_app)
+    @category_2 = Category.find_by(system_name: 'teplicy_volya_truba', app: current_app)
+    @articles = current_app.articles.active
+
     render "pages/#{current_app.sub_domain}/index"
   end
 
